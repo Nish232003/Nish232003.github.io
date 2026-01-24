@@ -1,16 +1,596 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nishita Jain | Data Scientist & Artist</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-  Hello world
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">NJ</a>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#gallery" class="nav-link">Art Gallery</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-greeting animate-fade-in">Hello, I'm</p>
+      <h1 class="hero-name animate-slide-up">Nishita Jain</h1>
+      <p class="hero-tagline animate-slide-up-delay">Data Scientist <span class="divider">|</span> Artist <span class="divider">|</span> Storyteller</p>
+      <p class="hero-description animate-fade-in-delay">Blending the precision of data with the soul of art to create meaningful insights and beautiful experiences.</p>
+      <div class="hero-cta animate-fade-in-delay-2">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+      <div class="hero-social animate-fade-in-delay-2">
+        <a href="https://www.linkedin.com/in/nishitajain2311/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://medium.com/@work.nishitajain" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
+        <a href="mailto:work.nishitajain@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <p>Scroll Down</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <div class="image-wrapper">
+            <div class="placeholder-image">
+              <i class="fas fa-user"></i>
+              <span>Photo Coming Soon</span>
+            </div>
+          </div>
+          <div class="image-decoration"></div>
+        </div>
+        <div class="about-text">
+          <h3>Where Data Meets Creativity</h3>
+          <p>Hello! I'm <strong>Nishita Jain</strong>, a third-year Integrated MTech CSE student at VIT Bhopal University, specializing in Data Science. My journey is a unique blend of analytical thinking and artistic expression.</p>
+          <p>My academic journey has equipped me with a deep understanding of time and space complexity in algorithmic problem-solving. Proficient in C++, I possess a strong foundation in computer science fundamentals and am passionate about leveraging technology to drive meaningful insights.</p>
+          <p>Beyond the world of code and data, I find solace in <strong>painting and sketching</strong>. Art allows me to express the stories that data tells in a more visceral way. I believe that the best insights come from seeing patterns others miss — whether in datasets or on canvas.</p>
+          <div class="about-highlights">
+            <div class="highlight">
+              <i class="fas fa-chart-line"></i>
+              <span>Data Science</span>
+            </div>
+            <div class="highlight">
+              <i class="fas fa-palette"></i>
+              <span>Fine Arts</span>
+            </div>
+            <div class="highlight">
+              <i class="fas fa-brain"></i>
+              <span>Machine Learning</span>
+            </div>
+          </div>
+          <a href="assets/resume.pdf" class="btn btn-primary" download>
+            <i class="fas fa-download"></i> Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Projects Section -->
+  <section id="projects" class="projects section">
+    <div class="container">
+      <h2 class="section-title">Data Projects</h2>
+      <p class="section-subtitle">Exploring insights through data analysis, visualization, and machine learning</p>
+      
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="dashboard">Dashboards</button>
+        <button class="filter-btn" data-filter="ml">Machine Learning</button>
+        <button class="filter-btn" data-filter="analysis">Analysis</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-category="dashboard">
+          <div class="project-image">
+            <div class="placeholder-project">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Sales Analytics Dashboard</h3>
+            <p>Interactive dashboard analyzing sales trends, customer behavior, and revenue forecasting.</p>
+            <div class="project-tags">
+              <span>Tableau</span>
+              <span>Python</span>
+              <span>SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-category="ml">
+          <div class="project-image">
+            <div class="placeholder-project">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Sentiment Analysis Model</h3>
+            <p>NLP-based model for analyzing customer reviews and social media sentiment.</p>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>NLP</span>
+              <span>Keras</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-category="analysis">
+          <div class="project-image">
+            <div class="placeholder-project">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Customer Segmentation</h3>
+            <p>Clustering analysis to identify customer segments for targeted marketing strategies.</p>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>Scikit-learn</span>
+              <span>Pandas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card" data-category="dashboard">
+          <div class="project-image">
+            <div class="placeholder-project">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Healthcare Analytics</h3>
+            <p>Data visualization dashboard for patient outcomes and hospital resource management.</p>
+            <div class="project-tags">
+              <span>Dataiku</span>
+              <span>Power BI</span>
+              <span>Python</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Embed Placeholder -->
+        <div class="project-card project-embed" data-category="dashboard">
+          <div class="project-image embed-placeholder">
+            <div class="placeholder-project">
+              <i class="fas fa-code"></i>
+              <p>Live Dashboard Coming Soon</p>
+              <span class="embed-note">Tableau/Streamlit embed ready</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Live Dashboard</h3>
+            <p>Space reserved for interactive live dashboards. Will be updated with Tableau Public or Streamlit apps.</p>
+            <div class="project-tags">
+              <span>Coming Soon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Art Gallery Section -->
+  <section id="gallery" class="gallery section">
+    <div class="container">
+      <h2 class="section-title">Art Gallery</h2>
+      <p class="section-subtitle">A collection of my paintings and sketches — where creativity flows freely</p>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item large">
+          <div class="placeholder-art">
+            <i class="fas fa-paint-brush"></i>
+            <span>Artwork 1</span>
+          </div>
+          <div class="gallery-overlay">
+            <h4>Abstract Dreams</h4>
+            <p>Oil on Canvas</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="placeholder-art">
+            <i class="fas fa-pencil-alt"></i>
+            <span>Artwork 2</span>
+          </div>
+          <div class="gallery-overlay">
+            <h4>Portrait Study</h4>
+            <p>Pencil Sketch</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="placeholder-art">
+            <i class="fas fa-palette"></i>
+            <span>Artwork 3</span>
+          </div>
+          <div class="gallery-overlay">
+            <h4>Nature's Palette</h4>
+            <p>Watercolor</p>
+          </div>
+        </div>
+        <div class="gallery-item tall">
+          <div class="placeholder-art">
+            <i class="fas fa-brush"></i>
+            <span>Artwork 4</span>
+          </div>
+          <div class="gallery-overlay">
+            <h4>Urban Impressions</h4>
+            <p>Acrylic Painting</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="placeholder-art">
+            <i class="fas fa-pen-fancy"></i>
+            <span>Artwork 5</span>
+          </div>
+          <div class="gallery-overlay">
+            <h4>Line Art Series</h4>
+            <p>Ink Drawing</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="placeholder-art">
+            <i class="fas fa-image"></i>
+            <span>Artwork 6</span>
+          </div>
+          <div class="gallery-overlay">
+            <h4>Digital Canvas</h4>
+            <p>Digital Art</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills section">
+    <div class="container">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <div class="skills-content">
+        <div class="skills-category">
+          <h3><i class="fas fa-code"></i> Technical Skills</h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fab fa-python"></i></div>
+              <span>Python</span>
+              <div class="skill-bar"><div class="skill-progress" style="--progress: 90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-database"></i></div>
+              <span>SQL</span>
+              <div class="skill-bar"><div class="skill-progress" style="--progress: 85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
+              <span>Tableau</span>
+              <div class="skill-bar"><div class="skill-progress" style="--progress: 80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-brain"></i></div>
+              <span>Machine Learning</span>
+              <div class="skill-bar"><div class="skill-progress" style="--progress: 75%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+              <span>Dataiku</span>
+              <div class="skill-bar"><div class="skill-progress" style="--progress: 85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fab fa-js"></i></div>
+              <span>C++</span>
+              <div class="skill-bar"><div class="skill-progress" style="--progress: 80%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3><i class="fas fa-palette"></i> Artistic Skills</h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
+              <span>Oil Painting</span>
+              <div class="skill-bar"><div class="skill-progress" style="--progress: 90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-pencil-alt"></i></div>
+              <span>Sketching</span>
+              <div class="skill-bar"><div class="skill-progress" style="--progress: 95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-tint"></i></div>
+              <span>Watercolor</span>
+              <div class="skill-bar"><div class="skill-progress" style="--progress: 85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon"><i class="fas fa-user"></i></div>
+              <span>Portraits</span>
+              <div class="skill-bar"><div class="skill-progress" style="--progress: 80%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3><i class="fas fa-users"></i> Soft Skills</h3>
+          <div class="soft-skills">
+            <span class="soft-skill">Problem Solving</span>
+            <span class="soft-skill">Teamwork</span>
+            <span class="soft-skill">Communication</span>
+            <span class="soft-skill">Adaptability</span>
+            <span class="soft-skill">Event Management</span>
+            <span class="soft-skill">Leadership</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience section">
+    <div class="container">
+      <h2 class="section-title">Experience & Education</h2>
+      <div class="timeline">
+        <!-- Experience -->
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Jan 2025 - Jun 2025</span>
+            <h3>Data Science Intern</h3>
+            <h4>Sabudh Foundation</h4>
+            <p>Working on data science projects, applying machine learning models and data analysis techniques to solve real-world problems.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-users"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">May 2023 - Apr 2024</span>
+            <h3>Core Member - Event Team</h3>
+            <h4>Data Science Club, VIT Bhopal</h4>
+            <p>Organized data science events, workshops, and hackathons. Collaborated with team members to promote data literacy on campus.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-palette"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Jan 2023 - Jun 2023</span>
+            <h3>Member</h3>
+            <h4>Meraki - The Fine Arts Club</h4>
+            <p>Participated in various art events and exhibitions. Developed artistic skills and collaborated with fellow artists.</p>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Nov 2022 - Mar 2027</span>
+            <h3>Integrated MTech in CSE</h3>
+            <h4>VIT Bhopal University</h4>
+            <p>Specialization in Data Science. Currently in third year with focus on machine learning, data analytics, and algorithmic problem-solving.</p>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-certificate"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Certifications</span>
+            <h3>Professional Certifications</h3>
+            <div class="certifications-list">
+              <div class="cert-badge"><i class="fas fa-award"></i> Dataiku Advanced Designer</div>
+              <div class="cert-badge"><i class="fas fa-award"></i> Dataiku Core Designer</div>
+              <div class="cert-badge"><i class="fas fa-award"></i> Dataiku MLOps Practitioner</div>
+              <div class="cert-badge"><i class="fas fa-award"></i> Deep Learning & Neural Networks with Keras</div>
+              <div class="cert-badge"><i class="fas fa-award"></i> Participatory Arts Certification</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="blog section">
+    <div class="container">
+      <h2 class="section-title">Blog & Writings</h2>
+      <p class="section-subtitle">Thoughts, reflections, and stories from my journey</p>
+      
+      <div class="blog-grid">
+        <article class="blog-card">
+          <div class="blog-image">
+            <div class="placeholder-blog">
+              <i class="fas fa-feather-alt"></i>
+            </div>
+          </div>
+          <div class="blog-content">
+            <span class="blog-date">Aug 13, 2025</span>
+            <h3>A Letter to the Self I Barely Recognize</h3>
+            <p>There is a part of me that is lost. I know this because its absence is a void I feel more deeply with each passing day...</p>
+            <a href="https://medium.com/@work.nishitajain/a-letter-to-the-self-i-barely-recognize-ee512819d487" target="_blank" class="read-more">Read on Medium <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-image">
+            <div class="placeholder-blog">
+              <i class="fas fa-heart"></i>
+            </div>
+          </div>
+          <div class="blog-content">
+            <span class="blog-date">Aug 9, 2025</span>
+            <h3>Miss</h3>
+            <p>Last Rakhi we were in the same room, doing all the fun alone together. Lowkey I miss her presence in my life...</p>
+            <a href="https://medium.com/@work.nishitajain/miss-3f5bca545742" target="_blank" class="read-more">Read on Medium <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-image">
+            <div class="placeholder-blog">
+              <i class="fas fa-pen"></i>
+            </div>
+          </div>
+          <div class="blog-content">
+            <span class="blog-date">Aug 6, 2025</span>
+            <h3>The Doorbell Sounds</h3>
+            <p>The doorbell sounds, the room fills up, A bitter drink in a porcelain cup...</p>
+            <a href="https://medium.com/@work.nishitajain/the-doorbell-sounds-the-room-fills-up-86c38691c578" target="_blank" class="read-more">Read on Medium <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="blog-cta">
+        <a href="https://medium.com/@work.nishitajain" target="_blank" class="btn btn-secondary">
+          <i class="fab fa-medium"></i> View All Posts on Medium
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact section">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Let's connect and create something amazing together</p>
+      
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:work.nishitajain@gmail.com">work.nishitajain@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+917869707205">+91 7869707205</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Location</h4>
+              <p>Rewa, Madhya Pradesh, India</p>
+            </div>
+          </div>
+          <div class="contact-social">
+            <a href="https://www.linkedin.com/in/nishitajain2311/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://medium.com/@work.nishitajain" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
+            <a href="mailto:work.nishitajain@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="subject" placeholder="Subject">
+          </div>
+          <div class="form-group">
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h3>Nishita Jain</h3>
+          <p>Data Scientist & Artist</p>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/nishitajain2311/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://medium.com/@work.nishitajain" target="_blank"><i class="fab fa-medium"></i></a>
+          <a href="mailto:work.nishitajain@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Nishita Jain. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
-
 </html>
