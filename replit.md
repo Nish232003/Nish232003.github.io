@@ -52,5 +52,11 @@ A creative portfolio website for Nishita Jain, a Data Scientist and Artist. The 
 5. **Live Dashboards**: Embed Tableau/Streamlit apps in the designated embed placeholder
 
 ## Recent Changes
+- January 2026: Updated profile with latest experience and skills
+  - Added Think AI Corporation role (Python/ML Developer)
+  - Updated hero tagline to "ML Developer | Data Scientist | Artist"
+  - Updated About section with computer vision and deep learning focus
+  - Added PyTorch, Computer Vision, Deep Learning, YOLO skills
+  - Added Urmila Public School to education timeline
+  - Updated resume PDF
 - Initial creation: Full portfolio website with all sections
-- Date: January 2026
