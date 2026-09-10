@@ -451,6 +451,309 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Hero Neural Particle Canvas Animation
+  function initHeroCanvas() {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    const particleCount = window.innerWidth < 768 ? 30 : 65;
+    let mouse = { x: null, y: null, radius: 140 };
+
+    function resize() {
+      const heroSection = document.getElementById('home');
+      if (!heroSection) return;
+      width = canvas.width = heroSection.offsetWidth;
+      height = canvas.height = heroSection.offsetHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    window.addEventListener('mousemove', function(e) {
+      const heroRect = canvas.getBoundingClientRect();
+      if (e.clientY >= heroRect.top && e.clientY <= heroRect.bottom) {
+        mouse.x = e.clientX - heroRect.left;
+        mouse.y = e.clientY - heroRect.top;
+      } else {
+        mouse.x = null;
+        mouse.y = null;
+      }
+    });
+
+    window.addEventListener('mouseout', function() {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 2.5 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.7;
+        this.speedY = (Math.random() - 0.5) * 0.7;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > width || this.x < 0) this.speedX = -this.speedX;
+        if (this.y > height || this.y < 0) this.speedY = -this.speedY;
+
+        // Mouse interaction
+        if (mouse.x != null && mouse.y != null) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            const angle = Math.atan2(dy, dx);
+            const force = (mouse.radius - dist) / mouse.radius;
+            this.x -= Math.cos(angle) * force * 2;
+            this.y -= Math.sin(angle) * force * 2;
+          }
+        }
+      }
+
+      draw() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        ctx.fillStyle = isDark ? 'rgba(232, 164, 184, 0.7)' : 'rgba(232, 164, 184, 0.5)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const lineColor = isDark ? 'rgba(232, 164, 184, 0.12)' : 'rgba(232, 164, 184, 0.18)';
+
+      for (let a = 0; a < particles.length; a++) {
+        particles[a].update();
+        particles[a].draw();
+
+        for (let b = a + 1; b < particles.length; b++) {
+          const dx = particles[a].x - particles[b].x;
+          const dy = particles[a].y - particles[b].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 110) {
+            ctx.strokeStyle = lineColor;
+            ctx.lineWidth = 1 - (distance / 110);
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+  }
+
+  initHeroCanvas();
+
+  // Interactive Fake Job NLP Scam Scanner Widget
+  const scannerPresets = {
+    'scam': {
+      text: "Urgent Assistant Needed! Earn $500 - $800 daily working from home! No experience or degree required. Wire transfer equipment fee upfront via Western Union or Bitcoin. Contact HR immediately on Telegram @quickjobs_hiring to start today!",
+      score: 96,
+      risk: 'high',
+      headline: '⚠️ Flagged as Highly Fraudulent (96% Confidence)',
+      summary: 'High density of red-flag indicators detected: off-platform communication (Telegram), upfront wire transfer fee, and unrealistic compensation without experience requirements.',
+      chips: ['wire transfer', 'telegram interview', 'no experience required', '$500/day', 'bitcoin payment']
+    },
+    'legit': {
+      text: "Senior Data Engineer at Acme Analytics. Responsibilities: Design and maintain robust ETL data pipelines in Python, SQL, and PyTorch. Build and optimize machine learning data warehousing models on AWS/GCP. Requirements: B.Tech/M.Tech in CS/Data Science, 2+ years of experience with distributed systems and model monitoring.",
+      score: 4,
+      risk: 'low',
+      headline: '✅ Verified Authentic Job Profile (4% Risk)',
+      summary: 'Semantic analysis reflects standard enterprise job descriptions: structured technical stack, realistic qualifications, and formal engineering responsibilities.',
+      chips: ['ETL pipelines', 'PyTorch/SQL', 'Degree required', 'Enterprise stack', 'Standard interview']
+    },
+    'suspicious': {
+      text: "Crypto Community Marketing Representative. Work 2 hours a day from your phone. Receive bonus weekly in USDT tokens. Must have active WhatsApp and complete initial verification survey.",
+      score: 72,
+      risk: 'medium',
+      headline: '⚡ Suspicious / Moderate Risk Profile (72% Risk)',
+      summary: 'Contains ambiguous task compensation patterns, unconventional cryptocurrency payout promises, and personal messaging app onboarding.',
+      chips: ['USDT tokens', 'whatsapp contact', '2 hours a day', 'task verification']
+    }
+  };
+
+  const presetBtns = document.querySelectorAll('.preset-btn');
+  const scannerInput = document.getElementById('scannerTextInput');
+  const scanJobBtn = document.getElementById('scanJobBtn');
+  const clearScanBtn = document.getElementById('clearScanBtn');
+  const scoreVal = document.getElementById('scoreVal');
+  const scoreLabel = document.getElementById('scoreLabel');
+  const scoreHeadline = document.getElementById('scoreHeadline');
+  const scoreSummary = document.getElementById('scoreSummary');
+  const triggerChips = document.getElementById('triggerChips');
+  const scoreDial = document.querySelector('.score-dial');
+
+  function renderScannerResult(data) {
+    if (!scoreVal || !scoreLabel || !scoreHeadline || !scoreSummary || !triggerChips) return;
+
+    scoreVal.textContent = `${data.score}%`;
+    scoreLabel.textContent = data.risk === 'high' ? 'High Fraud Risk' : data.risk === 'medium' ? 'Moderate Risk' : 'Verified Legit';
+    scoreHeadline.textContent = data.headline;
+    scoreSummary.textContent = data.summary;
+
+    if (scoreDial) {
+      scoreDial.className = `score-dial ${data.risk === 'low' ? 'safe' : data.risk === 'medium' ? 'suspicious' : ''}`;
+    }
+
+    triggerChips.innerHTML = data.chips.map(chip => 
+      `<span class="${data.risk === 'low' ? 'chip-success' : 'chip-danger'}">${chip}</span>`
+    ).join('');
+  }
+
+  function analyzeCustomText(text) {
+    const lower = text.toLowerCase();
+    const redFlags = ['telegram', 'wire transfer', 'western union', 'bitcoin', 'crypto', 'usdt', 'earn $', 'daily payment', 'no experience', 'whatsapp', 'upfront fee', 'gift card', 'cash app', 'immediate start'];
+    const greenFlags = ['python', 'sql', 'pytorch', 'b.tech', 'm.tech', 'degree', 'experience', 'pipeline', 'engineer', 'analyst', 'responsibilities', 'qualifications', 'benefits'];
+
+    let redMatches = redFlags.filter(f => lower.includes(f));
+    let greenMatches = greenFlags.filter(f => lower.includes(f));
+
+    let score = 25;
+    if (redMatches.length > 0) score += (redMatches.length * 24);
+    if (greenMatches.length > 0) score -= (greenMatches.length * 8);
+    score = Math.max(2, Math.min(99, score));
+
+    let risk = score > 65 ? 'high' : score > 35 ? 'medium' : 'low';
+    let headline = risk === 'high' ? `⚠️ Flagged as Likely Scam (${score}% Risk)` : risk === 'medium' ? `⚡ Moderate Risk Pattern (${score}% Score)` : `✅ Low Fraud Risk (${score}% Score)`;
+    let summary = risk === 'high' ? `Detected ${redMatches.length} suspicious high-risk keywords commonly found in fraudulent job postings.` : risk === 'medium' ? 'Text contains ambiguous hiring patterns or informal communication channels.' : 'Text exhibits standard professional job posting phrasing and technical requirements.';
+    let chips = redMatches.length > 0 ? redMatches : (greenMatches.length > 0 ? greenMatches : ['standard text']);
+
+    return { score, risk, headline, summary, chips };
+  }
+
+  presetBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      presetBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const presetKey = this.getAttribute('data-preset');
+      const data = scannerPresets[presetKey];
+      if (data && scannerInput) {
+        scannerInput.value = data.text;
+        renderScannerResult(data);
+      }
+    });
+  });
+
+  if (scanJobBtn) {
+    scanJobBtn.addEventListener('click', function() {
+      const text = (scannerInput ? scannerInput.value : '').trim();
+      if (!text) {
+        showToast('Please enter or paste a job text to analyze! 📝');
+        return;
+      }
+      const result = analyzeCustomText(text);
+      renderScannerResult(result);
+      showToast('NLP Fraud Scan Completed! ⚡');
+    });
+  }
+
+  if (clearScanBtn) {
+    clearScanBtn.addEventListener('click', function() {
+      if (scannerInput) scannerInput.value = '';
+      presetBtns.forEach(b => b.classList.remove('active'));
+      if (triggerChips) triggerChips.innerHTML = '';
+      if (scoreVal) scoreVal.textContent = '--%';
+      if (scoreLabel) scoreLabel.textContent = 'Awaiting Input';
+      if (scoreHeadline) scoreHeadline.textContent = 'Paste text above and click Run NLP Scan';
+      if (scoreSummary) scoreSummary.textContent = 'The NLP engine extracts TF-IDF token n-grams and evaluates against trained XGBoost fraud patterns.';
+    });
+  }
+
+  // Jump to Scanner button in Fake Job Detector card
+  document.querySelectorAll('.btn-jump-scanner').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const widget = document.getElementById('scamScannerWidget');
+      if (widget) {
+        const offsetTop = widget.offsetTop - 90;
+        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        widget.classList.add('highlight-pulse');
+        setTimeout(() => widget.classList.remove('highlight-pulse'), 2500);
+      }
+    });
+  });
+
+  // Set default initial preset in scanner
+  if (scannerInput && scannerPresets['scam']) {
+    scannerInput.value = scannerPresets['scam'].text;
+  }
+
+  // Art Gallery Medium Filter Tabs
+  const galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
+  const galleryItemsList = document.querySelectorAll('.gallery-item');
+
+  galleryFilterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      galleryFilterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const filter = this.getAttribute('data-gallery-filter');
+
+      galleryItemsList.forEach(item => {
+        const cat = item.getAttribute('data-category') || '';
+        if (filter === 'all' || cat === filter) {
+          item.style.display = 'block';
+          item.style.animation = 'fadeIn 0.5s ease forwards';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Interactive ATS Resume Modal
+  const resumeModal = document.getElementById('resumeModal');
+  const resumeCloseBtn = document.getElementById('resumeCloseBtn');
+  const openResumeNavBtn = document.getElementById('openResumeNavBtn');
+  const openResumeHeroBtn = document.getElementById('openResumeHeroBtn');
+  const openResumeAboutBtn = document.getElementById('openResumeAboutBtn');
+
+  function openResume() {
+    if (resumeModal) {
+      resumeModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeResume() {
+    if (resumeModal) {
+      resumeModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (openResumeNavBtn) openResumeNavBtn.addEventListener('click', openResume);
+  if (openResumeHeroBtn) openResumeHeroBtn.addEventListener('click', openResume);
+  if (openResumeAboutBtn) openResumeAboutBtn.addEventListener('click', openResume);
+  if (resumeCloseBtn) resumeCloseBtn.addEventListener('click', closeResume);
+
+  if (resumeModal) {
+    resumeModal.addEventListener('click', function(e) {
+      if (e.target === resumeModal) closeResume();
+    });
+  }
+
   // Lightbox for Art Gallery
   const lightbox = document.getElementById('artLightbox');
   const lightboxImg = document.getElementById('lightboxImg');
@@ -495,6 +798,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.key === 'Escape') {
       if (lightbox && lightbox.classList.contains('active')) closeLightbox();
       if (caseStudyModal && caseStudyModal.classList.contains('active')) closeCaseStudy();
+      if (resumeModal && resumeModal.classList.contains('active')) closeResume();
     }
   });
 
@@ -504,15 +808,17 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       
       const formData = new FormData(this);
-      const name = formData.get('name');
-      const email = formData.get('email');
-      const subject = formData.get('subject');
-      const message = formData.get('message');
+      const name = formData.get('name') || '';
+      const email = formData.get('email') || '';
+      const subject = formData.get('subject') || 'Portfolio Contact from ' + name;
+      const message = formData.get('message') || '';
 
-      const mailtoLink = `mailto:work.nishitajain@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Contact')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+      const mailtoLink = `mailto:work.nishitajain@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Hi Nishita,\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
       
-      window.location.href = mailtoLink;
-      showToast('Opening email client... ✉️');
+      showToast('Opening your email client... ✉️');
+      setTimeout(() => {
+        window.location.href = mailtoLink;
+      }, 500);
       this.reset();
     });
   }
@@ -520,14 +826,17 @@ document.addEventListener('DOMContentLoaded', function() {
   // Smooth scroll for nav anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        const offsetTop = target.offsetTop - 80;
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
-        });
+      const href = this.getAttribute('href');
+      if (href && href.startsWith('#') && href.length > 1) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const offsetTop = target.offsetTop - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
       }
     });
   });
