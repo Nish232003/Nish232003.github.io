@@ -3,461 +3,388 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nishita Jain — Data Scientist, ML Developer & Artist. Portfolio showcasing machine learning, deep learning, computer vision, marketing intelligence, and fine arts.">
-  <meta name="keywords" content="Nishita Jain, Data Scientist, Machine Learning, Deep Learning, Computer Vision, PyTorch, YOLO, XGBoost, Streamlit, Portfolio, AI Developer">
+  <meta name="description" content="Nishita Jain | Data Scientist & AI Practitioner. Netflix-inspired portfolio showcasing high-accuracy ML systems, computer vision models, and creative fine arts.">
   <meta name="author" content="Nishita Jain">
-  <!-- Open Graph / Social Media -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Nishita Jain | Data Scientist, ML Developer & Artist">
-  <meta property="og:description" content="Translating complex real-world data into high-impact AI models, intelligence platforms, and creative visuals.">
-  <meta property="og:image" content="assets/profile.jpg">
-  <meta property="og:url" content="https://nish232003.github.io">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Nishita Jain | Data Scientist, ML Developer & Artist">
-  <meta name="twitter:description" content="Translating complex real-world data into high-impact AI models, intelligence platforms, and creative visuals.">
-  <meta name="twitter:image" content="assets/profile.jpg">
-  <meta name="theme-color" content="#e8a4b8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <title>Nishita Jain | Data Scientist, ML Developer & Artist</title>
-  <link href="style.css?v=4" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#141414">
+  <title>Nishita Jain | Data Scientist & AI Practitioner (Netflix Portfolio)</title>
+  
+  <!-- Google Fonts: Bebas Neue for Netflix headings, Plus Jakarta Sans for UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheet with Cache Busting -->
+  <link rel="stylesheet" href="style.css?v=netflix_v10">
 </head>
 <body>
-  <!-- Scroll Progress Indicator -->
-  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#home" class="nav-logo">NJ</a>
-      <ul class="nav-menu">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#gallery" class="nav-link">Art Gallery</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#blog" class="nav-link">Blog</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="nav-resume-btn" id="openResumeNavBtn" title="View interactive resume modal">
-          <i class="fas fa-file-alt"></i> Resume
-        </button>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-          <i class="fas fa-moon"></i>
-        </button>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
+  <!-- Netflix Intro Audio -->
+  <audio id="netflixAudio" src="assets/netflix-sound.mp3" preload="auto"></audio>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <canvas id="heroCanvas" class="hero-canvas"></canvas>
-    <div class="hero-bg-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
+  <!-- ==========================================================================
+       SCREEN 1: "WHO'S WATCHING?" PROFILE SELECTION SCREEN
+       ========================================================================== -->
+  <div id="profileScreen" class="profile-screen">
+    <div class="profile-screen-logo">
+      <span class="logo-netflix-n">NJ</span>
+      <span class="logo-subtext">PORTFOLIO</span>
     </div>
-    <div class="hero-content">
-      <div class="hero-badge animate-fade-in">
-        <span class="pulse-dot"></span> Open to ML & Data Opportunities
-      </div>
-      <p class="hero-greeting animate-fade-in">Hello, I'm</p>
-      <h1 class="hero-name animate-slide-up">Nishita Jain</h1>
-      <p class="hero-tagline animate-slide-up-delay">
-        <span class="typewriter-prefix">I am a</span> 
-        <span class="typewriter-text" id="typewriterText">Data Scientist & AI Practitioner</span>
-        <span class="typewriter-cursor">|</span>
-      </p>
-      <p class="hero-description animate-fade-in-delay">Translating complex real-world data into high-impact AI models, intelligence platforms, and creative visuals.</p>
+
+    <div class="profile-container">
+      <h1 class="profile-title">Who's Watching?</h1>
       
-      <!-- Hero Key Metrics -->
-      <div class="hero-stats animate-fade-in-delay-2">
-        <div class="hero-stat-card">
-          <span class="stat-number" data-target="98" data-suffix="%">98%</span>
-          <span class="stat-label">Model Accuracy</span>
+      <div class="profile-grid">
+        <!-- Profile 1: Recruiter -->
+        <div class="profile-card" data-profile="recruiter">
+          <div class="avatar-wrapper">
+            <img src="assets/blue.png" alt="Recruiter Avatar">
+          </div>
+          <span class="profile-name">Recruiter</span>
+          <span class="profile-badge">Hiring Track</span>
         </div>
-        <div class="hero-stat-card">
-          <span class="stat-number" data-target="3000" data-prefix="Top ">Top 3K</span>
-          <span class="stat-label">Amazon ML Scholar</span>
+
+        <!-- Profile 2: Developer -->
+        <div class="profile-card" data-profile="developer">
+          <div class="avatar-wrapper">
+            <img src="assets/grey.png" alt="Developer Avatar">
+          </div>
+          <span class="profile-name">Developer</span>
+          <span class="profile-badge">Tech & Code</span>
         </div>
-        <div class="hero-stat-card">
-          <span class="stat-number" data-target="8.37" data-decimals="2">8.37</span>
-          <span class="stat-label">CGPA @ VIT</span>
+
+        <!-- Profile 3: Stalker -->
+        <div class="profile-card" data-profile="stalker">
+          <div class="avatar-wrapper">
+            <img src="assets/red.png" alt="Stalker Avatar">
+          </div>
+          <span class="profile-name">Stalker</span>
+          <span class="profile-badge">Art & Story</span>
         </div>
-        <div class="hero-stat-card">
-          <span class="stat-number" data-target="6" data-suffix="+">6+</span>
-          <span class="stat-label">Core Projects</span>
+
+        <!-- Profile 4: Adventurer -->
+        <div class="profile-card" data-profile="adventurer">
+          <div class="avatar-wrapper">
+            <img src="assets/yellow.png" alt="Adventurer Avatar">
+          </div>
+          <span class="profile-name">Adventurer</span>
+          <span class="profile-badge">Binge All</span>
         </div>
       </div>
 
-      <div class="hero-cta animate-fade-in-delay-2">
-        <a href="#projects" class="btn btn-primary"><i class="fas fa-layer-group"></i> Explore Projects</a>
-        <button class="btn btn-secondary btn-view-resume" id="openResumeHeroBtn">
-          <i class="fas fa-file-pdf"></i> View Resume
+      <div class="profile-actions">
+        <button id="directBrowseBtn" class="btn-manage-profiles">Browse as Guest</button>
+        <div class="sound-indicator">
+          <i class="fas fa-volume-up"></i> Sound enabled for Netflix intro
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SCREEN 2: MAIN NETFLIX BROWSING INTERFACE
+       ========================================================================== -->
+  <div id="browseScreen" class="browse-screen">
+    
+    <!-- Top Navigation Bar -->
+    <nav class="netflix-navbar" id="netflixNavbar">
+      <div class="nav-left">
+        <a href="#home" class="nav-brand">
+          <span class="nav-brand-n">NJ</span>
+          <span class="nav-brand-title">Nishita Jain</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#interactive-lab">Live Demo</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#art">Originals</a></li>
+          <li><a href="#writings">Writings</a></li>
+          <li><a href="#" id="openResumeNavBtn">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-right">
+        <!-- Live Search -->
+        <div class="nav-search-container" id="searchContainer">
+          <button class="nav-search-btn" id="searchToggleBtn" aria-label="Search"><i class="fas fa-search"></i></button>
+          <input type="text" class="nav-search-input" id="navSearchInput" placeholder="Titles, skills, tools...">
+        </div>
+
+        <!-- Audio Mute Toggle -->
+        <button class="nav-audio-btn" id="audioToggleBtn" title="Toggle Sound" aria-label="Toggle Sound">
+          <i class="fas fa-volume-up" id="audioIcon"></i>
         </button>
-        <a href="#contact" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
-        <button class="btn-copy-email" title="Click to copy email address">
-          <i class="fas fa-copy"></i> work.nishitajain@gmail.com
-        </button>
-      </div>
-      <div class="hero-social animate-fade-in-delay-2">
-        <a href="https://github.com/Nish232003" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/nishitajain2311/" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://medium.com/@work.nishitajain" target="_blank" aria-label="Medium" title="Medium"><i class="fab fa-medium"></i></a>
-        <a href="mailto:work.nishitajain@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <div class="mouse">
-        <div class="wheel"></div>
-      </div>
-      <p>Scroll Down</p>
-    </div>
-  </section>
 
-  <!-- About Section -->
-  <section id="about" class="about section">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <div class="about-image">
-          <div class="image-wrapper">
-            <img src="assets/profile.jpg" alt="Nishita Jain" class="profile-photo">
+        <!-- Active Profile Dropdown -->
+        <div class="nav-profile-dropdown" id="navProfileDropdown">
+          <div class="nav-avatar-icon">
+            <img id="navActiveAvatar" src="assets/blue.png" alt="Active Profile">
           </div>
-          <div class="image-decoration"></div>
-        </div>
-        <div class="about-text">
-          <h3>Where AI Meets Creativity</h3>
-          <p>Hello! I'm <strong>Nishita Jain</strong>, an Integrated M.Tech CSE (Data Science) student at VIT Bhopal University with hands-on experience in <strong>machine learning, deep learning, and computer vision</strong>.</p>
-          <p>I specialize in translating ambiguous real-world problems into production-ready AI solutions, including training and fine-tuning <strong>YOLO-based neural architectures in PyTorch</strong> for safety surveillance, and designing automated CRM data health scoring frameworks. My experience spans the end-to-end ML lifecycle — dataset curation, ETL pipelines, model experimentation, performance benchmarking, and web deployment.</p>
-          <p>Beyond code and algorithms, I express creativity through <strong>oil painting, sketching, and traditional Indian folk art</strong>. Art sharpens my ability to recognize subtle patterns, compose intuitive visualizations, and bring an aesthetic touch to engineering.</p>
-          <div class="about-highlights">
-            <div class="highlight">
-              <i class="fas fa-eye"></i>
-              <span>Computer Vision</span>
+          <i class="fas fa-caret-down dropdown-arrow"></i>
+
+          <div class="profile-menu">
+            <div class="profile-menu-item" data-switch="recruiter">
+              <img src="assets/blue.png" alt="Recruiter">
+              <span>Recruiter</span>
             </div>
-            <div class="highlight">
-              <i class="fas fa-palette"></i>
-              <span>Fine Arts</span>
+            <div class="profile-menu-item" data-switch="developer">
+              <img src="assets/grey.png" alt="Developer">
+              <span>Developer</span>
             </div>
-            <div class="highlight">
-              <i class="fas fa-brain"></i>
-              <span>Deep Learning</span>
+            <div class="profile-menu-item" data-switch="stalker">
+              <img src="assets/red.png" alt="Stalker">
+              <span>Stalker</span>
             </div>
-          </div>
-          <div class="about-actions">
-            <button class="btn btn-primary" id="openResumeAboutBtn">
-              <i class="fas fa-eye"></i> View Resume
-            </button>
-            <a href="assets/nishita_jain_resume_ds.pdf" class="btn btn-secondary" download="Nishita_Jain_Resume.pdf">
-              <i class="fas fa-download"></i> Download PDF
-            </a>
+            <div class="profile-menu-item" data-switch="adventurer">
+              <img src="assets/yellow.png" alt="Adventurer">
+              <span>Adventurer</span>
+            </div>
+            <div class="profile-menu-divider"></div>
+            <div class="profile-menu-footer" id="exitToProfilesBtn">
+              <i class="fas fa-users-cog"></i> Switch Profile Screen
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Data Projects Section -->
-  <section id="projects" class="projects section">
-    <div class="container">
-      <h2 class="section-title">Data & AI Projects</h2>
-      <p class="section-subtitle">Translating complex datasets into machine learning models, actionable analytics, and AI platforms</p>
+    <!-- Billboard Hero Section -->
+    <header id="home" class="billboard-hero">
+      <div class="billboard-ambient"></div>
       
-      <div class="project-filters">
-        <button class="filter-btn active" data-filter="all">All (6)</button>
-        <button class="filter-btn" data-filter="ml">Machine Learning & AI (3)</button>
-        <button class="filter-btn" data-filter="analysis">Analytics & BI (3)</button>
-        <button class="filter-btn" data-filter="iot">IoT & Geospatial (2)</button>
-      </div>
-
-      <div class="projects-grid">
-        <!-- Project 1: MarketLens (Featured) -->
-        <div class="project-card" data-category="analysis ml">
-          <div class="project-image">
-            <span class="featured-badge"><i class="fas fa-star"></i> Featured</span>
-            <span class="demo-live-badge"><i class="fas fa-circle"></i> Live Demo</span>
-            <div class="project-banner banner-marketlens">
-              <div class="banner-grid-overlay"></div>
-              <div class="banner-graphic">
-                <i class="fas fa-chart-line"></i>
-                <span class="banner-pill">ROI Intelligence Platform</span>
-              </div>
-            </div>
-            <div class="project-overlay">
-              <a href="https://github.com/Nish232003/Marketlens-ecommerce-roi" target="_blank" class="project-link" aria-label="GitHub Repository" title="GitHub Repository"><i class="fab fa-github"></i></a>
-              <a href="https://marketlens-ecommerce-roi.onrender.com/" target="_blank" class="project-link" aria-label="Live Demo" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header-links">
-              <h3>MarketLens: ROI Platform</h3>
-              <div class="project-card-links">
-                <button class="btn-case-study" data-project="marketlens" title="View case study & architecture"><i class="fas fa-info-circle"></i> Specs</button>
-                <a href="https://github.com/Nish232003/Marketlens-ecommerce-roi" target="_blank" title="GitHub Repository"><i class="fab fa-github"></i></a>
-                <a href="https://marketlens-ecommerce-roi.onrender.com/" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-              </div>
-            </div>
-            <p>End-to-end marketing intelligence platform that ingests multi-table e-commerce data, calculates ROAS, CAC, and LTV/CAC with 8 interactive Plotly charts, non-linear budget saturation curves, and hybrid NLP AI recommendations.</p>
-            <div class="project-tags">
-              <span>Python</span>
-              <span>Flask</span>
-              <span>Plotly</span>
-              <span>Pandas</span>
-              <span>Hybrid NLP</span>
-              <span>Marketing ROI</span>
-            </div>
-            <div class="project-card-footer">
-              <a href="https://marketlens-ecommerce-roi.onrender.com/" target="_blank" class="btn-card btn-card-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-              <a href="https://github.com/Nish232003/Marketlens-ecommerce-roi" target="_blank" class="btn-card btn-card-secondary"><i class="fab fa-github"></i> Code</a>
-            </div>
-          </div>
+      <div class="billboard-content">
+        <div class="billboard-badge">
+          <span class="badge-n">N</span> A NISHITA JAIN ORIGINAL DOCUMENTARY
         </div>
-
-        <!-- Project 2: Fake Job Detector -->
-        <div class="project-card" data-category="ml">
-          <div class="project-image">
-            <span class="featured-badge"><i class="fas fa-shield-alt"></i> 98% Accuracy</span>
-            <span class="demo-live-badge"><i class="fas fa-bolt"></i> Streamlit App</span>
-            <div class="project-banner banner-fraud">
-              <div class="banner-grid-overlay"></div>
-              <div class="banner-graphic">
-                <i class="fas fa-user-shield"></i>
-                <span class="banner-pill">NLP Fraud Detection</span>
-              </div>
-            </div>
-            <div class="project-overlay">
-              <a href="https://github.com/Nish232003/fake_job_detector" target="_blank" class="project-link" aria-label="GitHub Repository" title="GitHub Repository"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header-links">
-              <div>
-                <span class="project-date-badge">Jan 2026 – Mar 2026</span>
-                <h3>Fake Job Detector: NLP AI</h3>
-              </div>
-              <div class="project-card-links">
-                <button class="btn-case-study" data-project="fakejob" title="View case study & architecture"><i class="fas fa-info-circle"></i> Specs</button>
-                <a href="https://github.com/Nish232003/fake_job_detector" target="_blank" title="GitHub Repository"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-            <p>Engineered a fraud detection system over 17,880 job postings using NLP pipelines and TF-IDF text embeddings to extract semantic representations from multi-field job text; flagged 866 fraudulent listings with 98% accuracy using XGBoost (82% F1-score). Deployed on Streamlit Cloud with sub-second inference.</p>
-            <div class="project-tags">
-              <span>Python</span>
-              <span>NLP</span>
-              <span>TF-IDF</span>
-              <span>XGBoost</span>
-              <span>Streamlit</span>
-              <span>Scikit-Learn</span>
-            </div>
-            <div class="project-card-footer">
-              <button class="btn-card btn-card-primary btn-jump-scanner"><i class="fas fa-robot"></i> Test Interactive Scanner</button>
-              <a href="https://github.com/Nish232003/fake_job_detector" target="_blank" class="btn-card btn-card-secondary"><i class="fab fa-github"></i> Code</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3: Soil Sync -->
-        <div class="project-card" data-category="iot ml">
-          <div class="project-image">
-            <span class="featured-badge"><i class="fas fa-leaf"></i> 85% Accuracy</span>
-            <div class="project-banner banner-soilsync">
-              <div class="banner-grid-overlay"></div>
-              <div class="banner-graphic">
-                <i class="fas fa-seedling"></i>
-                <span class="banner-pill">IoT & ML Telemetry</span>
-              </div>
-            </div>
-            <div class="project-overlay">
-              <a href="https://github.com/Nish232003/Soil-Sync" target="_blank" class="project-link" aria-label="GitHub Repository" title="GitHub Repository"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header-links">
-              <div>
-                <span class="project-date-badge">Jan 2025 – Mar 2025</span>
-                <h3>SOIL SYNC: Fertility Analysis</h3>
-              </div>
-              <div class="project-card-links">
-                <button class="btn-case-study" data-project="soilsync" title="View case study & architecture"><i class="fas fa-info-circle"></i> Specs</button>
-                <a href="https://github.com/Nish232003/Soil-Sync" target="_blank" title="GitHub Repository"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-            <p>Built an end-to-end IoT-ML pipeline in Python to process soil sensor data (NPK, moisture, pH) and classify fertility, achieving 85% prediction accuracy with Random Forest and Logistic Regression. Engineered interactive Tableau dashboards for agricultural soil monitoring.</p>
-            <div class="project-tags">
-              <span>Python</span>
-              <span>IoT Sensors</span>
-              <span>Random Forest</span>
-              <span>Tableau</span>
-              <span>Scikit-Learn</span>
-            </div>
-            <div class="project-card-footer">
-              <a href="https://github.com/Nish232003/Soil-Sync" target="_blank" class="btn-card btn-card-secondary"><i class="fab fa-github"></i> View Repository</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: Satellite Analysis -->
-        <div class="project-card" data-category="analysis iot">
-          <div class="project-image">
-            <div class="project-banner banner-satellite">
-              <div class="banner-grid-overlay"></div>
-              <div class="banner-graphic">
-                <i class="fas fa-satellite"></i>
-                <span class="banner-pill">CartoDEM & NDVI GIS</span>
-              </div>
-            </div>
-            <div class="project-overlay">
-              <a href="https://github.com/Nish232003/Satellite_analysis" target="_blank" class="project-link" aria-label="GitHub Repository" title="GitHub Repository"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header-links">
-              <h3>Satellite Terrain Analysis</h3>
-              <div class="project-card-links">
-                <button class="btn-case-study" data-project="satellite" title="View case study & architecture"><i class="fas fa-info-circle"></i> Specs</button>
-                <a href="https://github.com/Nish232003/Satellite_analysis" target="_blank" title="GitHub Repository"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-            <p>Geospatial raster analysis using CartoDEM and satellite imagery. Implemented digital elevation modeling (DEM), hillshade calculation, slope and aspect analysis, along with NDVI time-series computation for vegetation health monitoring.</p>
-            <div class="project-tags">
-              <span>Python</span>
-              <span>GIS</span>
-              <span>NDVI</span>
-              <span>CartoDEM</span>
-              <span>Geospatial</span>
-            </div>
-            <div class="project-card-footer">
-              <a href="https://github.com/Nish232003/Satellite_analysis" target="_blank" class="btn-card btn-card-secondary"><i class="fab fa-github"></i> View Repository</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5: SafeCity Crime Analysis -->
-        <div class="project-card" data-category="analysis">
-          <div class="project-image">
-            <div class="project-banner banner-safecity">
-              <div class="banner-grid-overlay"></div>
-              <div class="banner-graphic">
-                <i class="fas fa-map-marked-alt"></i>
-                <span class="banner-pill">Geospatial Analytics</span>
-              </div>
-            </div>
-            <div class="project-overlay">
-              <a href="https://github.com/Nish232003/safecity_crime_data_analysis" target="_blank" class="project-link" aria-label="GitHub Repository" title="GitHub Repository"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header-links">
-              <h3>SafeCity: Crime Analytics</h3>
-              <div class="project-card-links">
-                <button class="btn-case-study" data-project="safecity" title="View case study & architecture"><i class="fas fa-info-circle"></i> Specs</button>
-                <a href="https://github.com/Nish232003/safecity_crime_data_analysis" target="_blank" title="GitHub Repository"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-            <p>Geospatial and longitudinal crime analytics across 36 Indian states (2001–2018). Developed visual pipelines to evaluate state-wise crime density, regional clustering, and historical safety trend trajectories.</p>
-            <div class="project-tags">
-              <span>Python</span>
-              <span>Data Analytics</span>
-              <span>Geospatial</span>
-              <span>Visualization</span>
-            </div>
-            <div class="project-card-footer">
-              <a href="https://github.com/Nish232003/safecity_crime_data_analysis" target="_blank" class="btn-card btn-card-secondary"><i class="fab fa-github"></i> View Repository</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 6: Checkora AI Chess -->
-        <div class="project-card" data-category="ml">
-          <div class="project-image">
-            <span class="demo-live-badge"><i class="fas fa-circle"></i> Live Demo</span>
-            <div class="project-banner banner-checkora">
-              <div class="banner-grid-overlay"></div>
-              <div class="banner-graphic">
-                <i class="fas fa-chess"></i>
-                <span class="banner-pill">Minimax & C++ Engine</span>
-              </div>
-            </div>
-            <div class="project-overlay">
-              <a href="https://github.com/Nish232003/Checkora" target="_blank" class="project-link" aria-label="GitHub Repository" title="GitHub Repository"><i class="fab fa-github"></i></a>
-              <a href="https://checkora.vercel.app" target="_blank" class="project-link" aria-label="Live Demo" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header-links">
-              <h3>Checkora: AI Chess Platform</h3>
-              <div class="project-card-links">
-                <button class="btn-case-study" data-project="checkora" title="View case study & architecture"><i class="fas fa-info-circle"></i> Specs</button>
-                <a href="https://github.com/Nish232003/Checkora" target="_blank" title="GitHub Repository"><i class="fab fa-github"></i></a>
-                <a href="https://checkora.vercel.app" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-              </div>
-            </div>
-            <p>Full-stack chess web platform featuring an intelligent AI engine with minimax state evaluation and alpha-beta pruning, built on Django and a high-performance C++ backend deployed on Vercel.</p>
-            <div class="project-tags">
-              <span>Django</span>
-              <span>C++</span>
-              <span>Minimax</span>
-              <span>Alpha-Beta Pruning</span>
-              <span>AI Search</span>
-            </div>
-            <div class="project-card-footer">
-              <a href="https://checkora.vercel.app" target="_blank" class="btn-card btn-card-primary"><i class="fas fa-external-link-alt"></i> Play Live</a>
-              <a href="https://github.com/Nish232003/Checkora" target="_blank" class="btn-card btn-card-secondary"><i class="fab fa-github"></i> Code</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Interactive Mini Demo: Fake Job NLP Scam Scanner -->
-      <div class="scam-scanner-widget" id="scamScannerWidget">
-        <div class="scanner-header">
-          <div class="scanner-title">
-            <div class="scanner-icon-badge"><i class="fas fa-robot"></i></div>
-            <div>
-              <h3>Interactive NLP Job Scam Scanner</h3>
-              <p>Test text against NLP TF-IDF & XGBoost fraud prediction heuristics</p>
-            </div>
-          </div>
-          <span class="scanner-pill-badge"><i class="fas fa-bolt"></i> Live ML Simulator</span>
-        </div>
+        <h1 class="billboard-title">NISHITA JAIN</h1>
+        <h2 class="billboard-subtitle">Data Scientist & AI Practitioner</h2>
         
-        <div class="scanner-presets">
+        <div class="billboard-meta">
+          <span class="meta-match"><i class="fas fa-check-circle"></i> 98% Match</span>
+          <span class="meta-pill">2022 – 2027</span>
+          <span class="meta-pill">Ultra HD 4K</span>
+          <span class="meta-pill">M.Tech (Data Science)</span>
+          <span class="meta-text"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</span>
+        </div>
+
+        <p class="billboard-synopsis">
+          Translating complex real-world data into high-accuracy ML models, computer vision systems (YOLOv11 PyTorch), and actionable business intelligence. Top 3K Amazon ML Scholar & Integrated M.Tech at VIT Bhopal.
+        </p>
+
+        <div class="billboard-actions">
+          <button class="btn-netflix btn-netflix-play" id="openResumeHeroBtn">
+            <i class="fas fa-play"></i> Play Resume
+          </button>
+          <button class="btn-netflix btn-netflix-info" id="moreInfoHeroBtn">
+            <i class="fas fa-info-circle"></i> More Info
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Profile Personalization Alert Bar -->
+    <div class="profile-banner-alert" id="profileAlert">
+      <div class="profile-alert-text">
+        <img id="alertAvatarImg" src="assets/blue.png" alt="Profile">
+        <span id="alertText">Browsing as <strong>Recruiter</strong> — Prioritizing production ML impact, business ROI, and verified credentials.</span>
+      </div>
+      <span class="profile-alert-action" id="alertChangeBtn">Change Profile</span>
+    </div>
+
+    <!-- Netflix Horizontal Rows Container -->
+    <main class="netflix-rows-container">
+
+      <!-- ROW 1: DYNAMIC TOP PICKS FOR ACTIVE PROFILE -->
+      <section class="netflix-row" id="topPicksSection">
+        <div class="row-header">
+          <h3 class="row-title" id="topPicksTitle">Top Picks for Recruiter</h3>
+          <span class="row-explore-all">Explore All</span>
+        </div>
+        <div class="row-slider-wrapper">
+          <button class="slider-arrow left" aria-label="Previous" data-row="topPicksRow"><i class="fas fa-chevron-left"></i></button>
+          <div class="row-slider-container" id="topPicksRow">
+            <!-- Populated via JavaScript based on selected profile -->
+          </div>
+          <button class="slider-arrow right" aria-label="Next" data-row="topPicksRow"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </section>
+
+      <!-- ROW 2: TRENDING PROJECTS (CORE MACHINE LEARNING & AI) -->
+      <section class="netflix-row" id="projects">
+        <div class="row-header">
+          <h3 class="row-title">Trending Now: Core Data & AI Projects</h3>
+          <span class="row-explore-all">5 Titles</span>
+        </div>
+        <div class="row-slider-wrapper">
+          <button class="slider-arrow left" aria-label="Previous" data-row="projectsRow"><i class="fas fa-chevron-left"></i></button>
+          <div class="row-slider-container" id="projectsRow">
+            
+            <!-- Project 1: MarketLens -->
+            <div class="netflix-card" data-modal="marketlens">
+              <div class="card-thumbnail">
+                <span class="card-badge">Featured Blockbuster</span>
+                <div class="card-banner-art card-banner-marketlens">
+                  <i class="fas fa-chart-line"></i>
+                  <span class="banner-pill">ROI Platform</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Marketlens-ecommerce-roi</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">99% Match</span>
+                  <span class="card-meta-tag">Live Demo</span>
+                  <span class="card-meta-tag">HD</span>
+                </div>
+                <div class="card-tags">
+                  <span>Flask</span>
+                  <span>Plotly</span>
+                  <span>ROAS</span>
+                  <span>Hybrid NLP</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2: Fake Job Detector -->
+            <div class="netflix-card" data-modal="fakejob">
+              <div class="card-thumbnail">
+                <span class="card-badge green">98% Accuracy</span>
+                <div class="card-banner-art card-banner-fraud">
+                  <i class="fas fa-user-shield"></i>
+                  <span class="banner-pill">NLP Fraud Detection</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">fake_job_detector</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">98% Match</span>
+                  <span class="card-meta-tag">Streamlit</span>
+                  <span class="card-meta-tag">ML</span>
+                </div>
+                <div class="card-tags">
+                  <span>TF-IDF</span>
+                  <span>XGBoost</span>
+                  <span>17.8K Records</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3: Soil Sync -->
+            <div class="netflix-card" data-modal="soilsync">
+              <div class="card-thumbnail">
+                <span class="card-badge">85% Accuracy</span>
+                <div class="card-banner-art card-banner-soilsync">
+                  <i class="fas fa-seedling"></i>
+                  <span class="banner-pill">IoT & ML Telemetry</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Soil-Sync</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">94% Match</span>
+                  <span class="card-meta-tag">IoT</span>
+                  <span class="card-meta-tag">Telemetry</span>
+                </div>
+                <div class="card-tags">
+                  <span>Random Forest</span>
+                  <span>Tableau</span>
+                  <span>Sensors</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4: Satellite Analysis -->
+            <div class="netflix-card" data-modal="satellite">
+              <div class="card-thumbnail">
+                <span class="card-badge">GIS Series</span>
+                <div class="card-banner-art card-banner-satellite">
+                  <i class="fas fa-satellite"></i>
+                  <span class="banner-pill">CartoDEM & NDVI GIS</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">satellite-data-analysis</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">92% Match</span>
+                  <span class="card-meta-tag">CartoDEM</span>
+                  <span class="card-meta-tag">NDVI</span>
+                </div>
+                <div class="card-tags">
+                  <span>Geospatial</span>
+                  <span>DEM</span>
+                  <span>Raster</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 5: SafeCity Crime Analysis -->
+            <div class="netflix-card" data-modal="safecity">
+              <div class="card-thumbnail">
+                <span class="card-badge">Analytics Series</span>
+                <div class="card-banner-art card-banner-safecity">
+                  <i class="fas fa-map-marked-alt"></i>
+                  <span class="banner-pill">Geospatial Analytics</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">safecity_crime_data_analysis</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">90% Match</span>
+                  <span class="card-meta-tag">36 States</span>
+                  <span class="card-meta-tag">Longitudinal</span>
+                </div>
+                <div class="card-tags">
+                  <span>Spatial Density</span>
+                  <span>Python</span>
+                  <span>EDA</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <button class="slider-arrow right" aria-label="Next" data-row="projectsRow"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </section>
+
+      <!-- ROW 3: INTERACTIVE LAB: LIVE SCAM SCANNER SIMULATOR -->
+      <section class="interactive-lab-section" id="interactive-lab">
+        <div class="lab-header">
+          <span class="lab-tag"><i class="fas fa-bolt"></i> Live ML Simulator</span>
+          <h3 class="lab-title">Interactive NLP Job Scam Scanner</h3>
+          <p class="lab-subtitle">Test real-world text against NLP TF-IDF text embeddings & XGBoost fraud prediction heuristics live in your browser.</p>
+        </div>
+
+        <div class="lab-presets">
           <span class="preset-label">Quick Presets:</span>
           <button type="button" class="preset-btn active" data-preset="scam">⚠️ High-Risk Wire Transfer</button>
           <button type="button" class="preset-btn" data-preset="legit">✅ Legitimate Data Engineer</button>
           <button type="button" class="preset-btn" data-preset="suspicious">⚡ Suspicious Telegram Clerk</button>
         </div>
 
-        <div class="scanner-input-container">
-          <textarea id="scannerTextInput" rows="4" placeholder="Paste or type any job description, salary promise, or recruitment message to test..."></textarea>
-          <div class="scanner-actions">
-            <button id="scanJobBtn" class="btn btn-primary"><i class="fas fa-search"></i> Run NLP Scan</button>
-            <button id="clearScanBtn" class="btn btn-secondary"><i class="fas fa-undo"></i> Reset Sample</button>
-          </div>
-        </div>
-
-        <div class="scanner-results" id="scannerResults">
-          <div class="scanner-score-box" id="scannerScoreBox">
-            <div class="score-dial">
-              <span class="score-val" id="scoreVal">94%</span>
-              <span class="score-text" id="scoreLabel">High Fraud Risk</span>
+        <div class="lab-input-grid">
+          <div>
+            <textarea id="scannerTextInput" class="lab-textarea" placeholder="Paste or type any job description, salary promise, or recruitment message to test..."></textarea>
+            <div class="lab-buttons">
+              <button id="scanJobBtn" class="btn-netflix btn-netflix-play"><i class="fas fa-search"></i> Run NLP Scan</button>
+              <button id="clearScanBtn" class="btn-netflix btn-netflix-secondary"><i class="fas fa-undo"></i> Reset Preset</button>
             </div>
-            <div class="score-details">
+          </div>
+
+          <div class="lab-result-box" id="scannerResults">
+            <div class="result-dial-header">
+              <div>
+                <span class="dial-score" id="scoreVal">94%</span>
+              </div>
+              <span class="dial-label" id="scoreLabel">High Fraud Risk</span>
+            </div>
+            <div class="result-explanation">
               <h4 id="scoreHeadline">⚠️ Flagged as Highly Fraudulent</h4>
               <p id="scoreSummary">Contains high-density red-flag trigger keywords (unverified payment methods, off-platform chat interview, unrealistic compensation).</p>
-              <div class="trigger-chips" id="triggerChips">
+              <div class="trigger-chips-row" id="triggerChips">
                 <span class="chip-danger">wire transfer</span>
                 <span class="chip-danger">telegram interview</span>
                 <span class="chip-danger">no experience required</span>
@@ -466,730 +393,668 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Art Gallery Section -->
-  <section id="gallery" class="gallery section">
-    <div class="container">
-      <h2 class="section-title">Art Gallery</h2>
-      <p class="section-subtitle">A collection of my paintings and sketches — where creativity and visual intuition flow freely</p>
-      
-      <div class="gallery-filters">
-        <button class="gallery-filter-btn active" data-gallery-filter="all">All Pieces (6)</button>
-        <button class="gallery-filter-btn" data-gallery-filter="acrylic">Canvas & Acrylic (2)</button>
-        <button class="gallery-filter-btn" data-gallery-filter="popart">Still Life & Pop Art (2)</button>
-        <button class="gallery-filter-btn" data-gallery-filter="traditional">Sketches & Folk Art (2)</button>
-      </div>
+      <!-- ROW 4: BEHIND THE SCENES: ENGINEERING EXPERIENCE -->
+      <section class="netflix-row" id="experience">
+        <div class="row-header">
+          <h3 class="row-title">Behind the Scenes: Engineering Experience</h3>
+          <span class="row-explore-all">3 Episodes</span>
+        </div>
+        <div class="row-slider-wrapper">
+          <button class="slider-arrow left" aria-label="Previous" data-row="expRow"><i class="fas fa-chevron-left"></i></button>
+          <div class="row-slider-container" id="expRow">
 
-      <div class="gallery-grid">
-        <!-- Main Featured Piece -->
-        <div class="gallery-item large" data-category="acrylic">
-          <img src="assets/painting1.jpg" alt="Radha Krishna Painting" class="gallery-photo">
-          <div class="gallery-overlay">
-            <h4>Divine Love</h4>
-            <p>Acrylic on Canvas</p>
+            <!-- Exp 1: Vaighai Agro -->
+            <div class="netflix-card" data-modal="vaighai">
+              <div class="card-thumbnail">
+                <span class="card-badge">Data Engineer</span>
+                <div class="card-banner-art card-banner-experience">
+                  <i class="fas fa-database"></i>
+                  <span>Vaighai Agro Products</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Vaighai Agro Products</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">99% Match</span>
+                  <span class="card-meta-tag">Intern</span>
+                  <span class="card-meta-tag">CRM Scoring</span>
+                </div>
+                <div class="card-tags">
+                  <span>Power Automate</span>
+                  <span>Dynamics 365</span>
+                  <span>456 Deals</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Exp 2: ThinkAI -->
+            <div class="netflix-card" data-modal="thinkai">
+              <div class="card-thumbnail">
+                <span class="card-badge green">Computer Vision</span>
+                <div class="card-banner-art card-banner-experience">
+                  <i class="fas fa-video"></i>
+                  <span>ThinkAI India Consulting</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">ThinkAI India Consulting</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">98% Match</span>
+                  <span class="card-meta-tag">Intern</span>
+                  <span class="card-meta-tag">YOLOv11</span>
+                </div>
+                <div class="card-tags">
+                  <span>PyTorch</span>
+                  <span>Roboflow</span>
+                  <span>Safety Gear</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Exp 3: Sabudh -->
+            <div class="netflix-card" data-modal="sabudh">
+              <div class="card-thumbnail">
+                <span class="card-badge">Deep Learning</span>
+                <div class="card-banner-art card-banner-experience">
+                  <i class="fas fa-cubes"></i>
+                  <span>Sabudh Foundation</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Sabudh Foundation</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">95% Match</span>
+                  <span class="card-meta-tag">Trainee</span>
+                  <span class="card-meta-tag">3D GANs</span>
+                </div>
+                <div class="card-tags">
+                  <span>Face Mesh</span>
+                  <span>Biometrics</span>
+                  <span>PyTorch</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <button class="slider-arrow right" aria-label="Next" data-row="expRow"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </section>
+
+      <!-- ROW 5: SPECIAL RELEASES: HONORS & LEADERSHIP -->
+      <section class="netflix-row" id="honors">
+        <div class="row-header">
+          <h3 class="row-title">Special Releases: Honors, Clubs & Education</h3>
+          <span class="row-explore-all">Prestigious</span>
+        </div>
+        <div class="row-slider-wrapper">
+          <button class="slider-arrow left" aria-label="Previous" data-row="honorsRow"><i class="fas fa-chevron-left"></i></button>
+          <div class="row-slider-container" id="honorsRow">
+
+            <!-- Amazon ML Summer School -->
+            <div class="netflix-card" data-modal="amazon">
+              <div class="card-thumbnail">
+                <span class="card-badge">Top 3K Scholar</span>
+                <div class="card-banner-art card-banner-award">
+                  <i class="fas fa-award"></i>
+                  <span>Amazon ML Summer School</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Amazon ML Scholar 2026</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">99% Match</span>
+                  <span class="card-meta-tag">Selected</span>
+                  <span class="card-meta-tag">Amazon</span>
+                </div>
+                <div class="card-tags">
+                  <span>1.3L+ Candidates</span>
+                  <span>Deep Learning</span>
+                  <span>NLP</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- VIT Bhopal University -->
+            <div class="netflix-card" data-modal="vit">
+              <div class="card-thumbnail">
+                <span class="card-badge green">8.37 CGPA</span>
+                <div class="card-banner-art card-banner-award">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>VIT Bhopal University</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Integrated M.Tech CSE</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">96% Match</span>
+                  <span class="card-meta-tag">2022 – 2027</span>
+                  <span class="card-meta-tag">Data Science</span>
+                </div>
+                <div class="card-tags">
+                  <span>Data Science</span>
+                  <span>AI/ML</span>
+                  <span>Algorithms</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Science Club -->
+            <div class="netflix-card" data-modal="dsclub">
+              <div class="card-thumbnail">
+                <span class="card-badge">Leadership</span>
+                <div class="card-banner-art card-banner-award">
+                  <i class="fas fa-users"></i>
+                  <span>Data Science Club VIT</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Data Science Club VIT</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">92% Match</span>
+                  <span class="card-meta-tag">Core Member</span>
+                  <span class="card-meta-tag">Hackathons</span>
+                </div>
+                <div class="card-tags">
+                  <span>24-hr Hackathons</span>
+                  <span>Workshops</span>
+                  <span>Mentorship</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Robin Hood Army -->
+            <div class="netflix-card" data-modal="robinhood">
+              <div class="card-thumbnail">
+                <span class="card-badge">Social Impact</span>
+                <div class="card-banner-art card-banner-award">
+                  <i class="fas fa-hand-holding-heart"></i>
+                  <span>Robin Hood Army</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Robin Hood Army</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">95% Match</span>
+                  <span class="card-meta-tag">Volunteer</span>
+                  <span class="card-meta-tag">Community</span>
+                </div>
+                <div class="card-tags">
+                  <span>Food Surplus</span>
+                  <span>Education</span>
+                  <span>Social Cause</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <button class="slider-arrow right" aria-label="Next" data-row="honorsRow"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </section>
+
+      <!-- ROW 6: ORIGINAL SERIES: FINE ARTS GALLERY -->
+      <section class="netflix-row" id="art">
+        <div class="row-header">
+          <h3 class="row-title">Original Series: Fine Arts & Folk Art Gallery</h3>
+          <span class="row-explore-all">6 Artworks</span>
+        </div>
+        <div class="row-slider-wrapper">
+          <button class="slider-arrow left" aria-label="Previous" data-row="artRow"><i class="fas fa-chevron-left"></i></button>
+          <div class="row-slider-container" id="artRow">
+
+            <!-- Art 1: Vivid Impressionist Portrait -->
+            <div class="netflix-card art-card" data-img="assets/art1.png" data-title="Vivid Chromatic Portrait" data-medium="Acrylic & Mixed Media on Textured Board">
+              <div class="card-thumbnail">
+                <span class="card-badge">Portraiture</span>
+                <img src="assets/art1.png" alt="Vivid Chromatic Portrait" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Vivid Chromatic Portrait</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">99% Match</span>
+                  <span class="card-meta-tag">Original</span>
+                </div>
+                <div class="card-tags">
+                  <span>Expressionism</span>
+                  <span>Mixed Media</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Art 2: Monocle Parisian Cafe Sketch -->
+            <div class="netflix-card art-card" data-img="assets/art2.png" data-title="Monocle Parisian Café" data-medium="Pen, Ink & Watercolor on Sketchbook Paper">
+              <div class="card-thumbnail">
+                <span class="card-badge">Watercolor & Ink</span>
+                <img src="assets/art2.png" alt="Monocle Parisian Café" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Monocle Parisian Café</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">98% Match</span>
+                  <span class="card-meta-tag">Urban Sketch</span>
+                </div>
+                <div class="card-tags">
+                  <span>Plein Air</span>
+                  <span>Café Vignette</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Art 3: Bookshelf, Plants & Teapot Still Life -->
+            <div class="netflix-card art-card" data-img="assets/art3.png" data-title="Cozy Botanicals & Still Life" data-medium="Watercolor & Gouache on Textured Cold-Press Paper">
+              <div class="card-thumbnail">
+                <span class="card-badge">Watercolor</span>
+                <img src="assets/art3.png" alt="Cozy Botanicals & Still Life" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Cozy Botanicals & Still Life</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">97% Match</span>
+                  <span class="card-meta-tag">Original</span>
+                </div>
+                <div class="card-tags">
+                  <span>Botanical</span>
+                  <span>Still Life</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Art 4: Traditional Indian Madhubani Folk Art -->
+            <div class="netflix-card art-card" data-img="assets/art4.png" data-title="Madhubani Matsya Mandala" data-medium="Traditional Madhubani Folk Art / Fine Ink & Acrylic">
+              <div class="card-thumbnail">
+                <span class="card-badge">Madhubani Folk Art</span>
+                <img src="assets/art4.png" alt="Madhubani Matsya Mandala" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Madhubani Matsya Mandala</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">99% Match</span>
+                  <span class="card-meta-tag">Folk Art</span>
+                </div>
+                <div class="card-tags">
+                  <span>Indian Folk Art</span>
+                  <span>Sacred Geometry</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Art 5: Pop-Art Wine Pour -->
+            <div class="netflix-card art-card" data-img="assets/art5.png" data-title="Crimson Wine Pour" data-medium="Pop Art / Acrylic on Canvas Board">
+              <div class="card-thumbnail">
+                <span class="card-badge">Pop Art</span>
+                <img src="assets/art5.png" alt="Crimson Wine Pour" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Crimson Wine Pour</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">96% Match</span>
+                  <span class="card-meta-tag">Original</span>
+                </div>
+                <div class="card-tags">
+                  <span>Graphic Pop Art</span>
+                  <span>High Contrast</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Art 6: Celestial Sun & Moon Hand-Painted Totes -->
+            <div class="netflix-card art-card" data-img="assets/art6.jpg" data-title="Celestial Harmony: Sun & Moon" data-medium="Hand-Painted Acrylic on Canvas Tote Bags / Wearable Art">
+              <div class="card-thumbnail">
+                <span class="card-badge">Wearable Art</span>
+                <img src="assets/art6.jpg" alt="Celestial Harmony: Sun & Moon" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">Celestial Sun & Moon</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">99% Match</span>
+                  <span class="card-meta-tag">Original</span>
+                </div>
+                <div class="card-tags">
+                  <span>Wearable Art</span>
+                  <span>Hand-Painted</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <button class="slider-arrow right" aria-label="Next" data-row="artRow"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </section>
+
+      <!-- ROW 7: CRITICAL ACCLAIM: CERTIFICATIONS & WRITINGS -->
+      <section class="netflix-row" id="writings">
+        <div class="row-header">
+          <h3 class="row-title">Critical Acclaim: Certifications & Medium Writings</h3>
+          <span class="row-explore-all">Featured</span>
+        </div>
+        <div class="row-slider-wrapper">
+          <button class="slider-arrow left" aria-label="Previous" data-row="writingsRow"><i class="fas fa-chevron-left"></i></button>
+          <div class="row-slider-container" id="writingsRow">
+
+            <!-- IBM AI Engineering -->
+            <div class="netflix-card" data-modal="ibmai">
+              <div class="card-thumbnail">
+                <span class="card-badge">Professional Certification</span>
+                <div class="card-banner-art card-banner-award">
+                  <i class="fab fa-ibm"></i>
+                  <span>IBM AI Engineering</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">IBM AI Engineering Specialization</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">99% Match</span>
+                  <span class="card-meta-tag">IBM</span>
+                  <span class="card-meta-tag">Coursera</span>
+                </div>
+                <div class="card-tags">
+                  <span>Deep Learning</span>
+                  <span>PyTorch</span>
+                  <span>Keras</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- IBM Data Analyst -->
+            <div class="netflix-card" data-modal="ibmda">
+              <div class="card-thumbnail">
+                <span class="card-badge">Professional Certification</span>
+                <div class="card-banner-art card-banner-award">
+                  <i class="fab fa-ibm"></i>
+                  <span>IBM Data Analyst</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">IBM Data Analyst Professional</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">97% Match</span>
+                  <span class="card-meta-tag">IBM</span>
+                  <span class="card-meta-tag">SQL</span>
+                </div>
+                <div class="card-tags">
+                  <span>Data Pipelines</span>
+                  <span>Excel</span>
+                  <span>Cognos</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Medium Article 1 -->
+            <div class="netflix-card" data-modal="medium1">
+              <div class="card-thumbnail">
+                <span class="card-badge">Medium Essay</span>
+                <div class="card-banner-art card-banner-art-cover">
+                  <i class="fab fa-medium"></i>
+                  <span>Personal Essay</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">A Letter to the Self I Barely Recognize</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">98% Match</span>
+                  <span class="card-meta-tag">Aug 13, 2025</span>
+                  <span class="card-meta-tag">5 min read</span>
+                </div>
+                <div class="card-tags">
+                  <span>Self-Reflection</span>
+                  <span>Growth</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Medium Article 2 -->
+            <div class="netflix-card" data-modal="medium2">
+              <div class="card-thumbnail">
+                <span class="card-badge">Medium Essay</span>
+                <div class="card-banner-art card-banner-art-cover">
+                  <i class="fab fa-medium"></i>
+                  <span>Personal Reflection</span>
+                </div>
+              </div>
+              <div class="card-info">
+                <h4 class="card-title">The Doorbell Sounds, The Room Fills Up...</h4>
+                <div class="card-meta-row">
+                  <span class="card-meta-match">95% Match</span>
+                  <span class="card-meta-tag">Aug 6, 2025</span>
+                  <span class="card-meta-tag">4 min read</span>
+                </div>
+                <div class="card-tags">
+                  <span>Human Patterns</span>
+                  <span>Observation</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <button class="slider-arrow right" aria-label="Next" data-row="writingsRow"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </section>
+
+      <!-- ROW 8: TECH ARSENAL: GENRES OF COMPETENCY -->
+      <section class="netflix-row" id="skills">
+        <div class="row-header">
+          <h3 class="row-title">Tech Arsenal: Skills by Category</h3>
+          <span class="row-explore-all">Production-Ready</span>
+        </div>
+        <div class="skills-genre-container">
+          <div class="genre-group">
+            <h4><i class="fas fa-code"></i> Core Programming & Query Languages</h4>
+            <div class="genre-pills">
+              <span class="genre-pill">Python</span>
+              <span class="genre-pill">SQL</span>
+              <span class="genre-pill">C++</span>
+              <span class="genre-pill">Java</span>
+              <span class="genre-pill">R</span>
+              <span class="genre-pill">JavaScript</span>
+              <span class="genre-pill">HTML5 / CSS3</span>
+            </div>
+          </div>
+
+          <div class="genre-group">
+            <h4><i class="fas fa-brain"></i> Machine Learning, Deep Learning & Vision</h4>
+            <div class="genre-pills">
+              <span class="genre-pill">PyTorch</span>
+              <span class="genre-pill">YOLOv8 / YOLOv11</span>
+              <span class="genre-pill">Scikit-Learn</span>
+              <span class="genre-pill">XGBoost</span>
+              <span class="genre-pill">OpenCV</span>
+              <span class="genre-pill">Natural Language Processing (NLP)</span>
+              <span class="genre-pill">TF-IDF</span>
+              <span class="genre-pill">3D GANs</span>
+              <span class="genre-pill">Roboflow</span>
+            </div>
+          </div>
+
+          <div class="genre-group">
+            <h4><i class="fas fa-chart-pie"></i> Data Engineering & Business Intelligence</h4>
+            <div class="genre-pills">
+              <span class="genre-pill">Pandas</span>
+              <span class="genre-pill">NumPy</span>
+              <span class="genre-pill">Microsoft Power Automate</span>
+              <span class="genre-pill">Dynamics 365</span>
+              <span class="genre-pill">Tableau</span>
+              <span class="genre-pill">Plotly</span>
+              <span class="genre-pill">CartoDEM & NDVI Geospatial</span>
+              <span class="genre-pill">ETL Automation</span>
+            </div>
+          </div>
+
+          <div class="genre-group">
+            <h4><i class="fas fa-tools"></i> Developer Tools & Environments</h4>
+            <div class="genre-pills">
+              <span class="genre-pill">Git</span>
+              <span class="genre-pill">GitHub</span>
+              <span class="genre-pill">LeetCode</span>
+              <span class="genre-pill">Streamlit</span>
+              <span class="genre-pill">Flask</span>
+              <span class="genre-pill">Jupyter Notebooks</span>
+              <span class="genre-pill">VS Code</span>
+            </div>
           </div>
         </div>
+      </section>
 
-        <!-- Complementary Vertical Piece -->
-        <div class="gallery-item tall" data-category="popart">
-          <img src="assets/art3.png" alt="Bookshelf Painting" class="gallery-photo">
-          <div class="gallery-overlay">
-            <h4>Art Elements</h4>
-            <p>Still Life</p>
-          </div>
+    </main>
+
+    <!-- Netflix Footer & Contact Section -->
+    <footer class="netflix-footer" id="contact">
+      <div class="footer-content">
+        <div class="footer-social-icons">
+          <a href="https://github.com/Nish232003" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/nishitajain2311/" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://leetcode.com/u/nishita_23/" target="_blank" aria-label="LeetCode" title="LeetCode"><i class="fas fa-code"></i></a>
+          <a href="https://medium.com/@work.nishitajain" target="_blank" aria-label="Medium" title="Medium"><i class="fab fa-medium"></i></a>
+          <a href="mailto:work.nishitajain@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
         </div>
 
-        <!-- Grid of smaller pieces -->
-        <div class="gallery-item" data-category="acrylic">
-          <img src="assets/art1.png" alt="Portrait Painting" class="gallery-photo">
-          <div class="gallery-overlay">
-            <h4>Vibrant Soul</h4>
-            <p>Oil Study</p>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-category="popart">
-          <img src="assets/art5.png" alt="Wine Pour Painting" class="gallery-photo">
-          <div class="gallery-overlay">
-            <h4>Evening Pour</h4>
-            <p>Pop Art Style</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="traditional">
-          <img src="assets/art2.png" alt="Cafe Sketch" class="gallery-photo">
-          <div class="gallery-overlay">
-            <h4>Monocle Cafe</h4>
-            <p>Travel Sketch</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="traditional">
-          <img src="assets/art4.png" alt="Madhubani Art" class="gallery-photo">
-          <div class="gallery-overlay">
-            <h4>Madhubani Fishes</h4>
-            <p>Traditional Folk Art</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section (Aligned to Final Resume) -->
-  <section id="skills" class="skills section">
-    <div class="container">
-      <h2 class="section-title">Technical Skills & Expertise</h2>
-      <p class="section-subtitle">Core competencies organized across programming, deep learning, data engineering, and creative disciplines</p>
-
-      <div class="skills-content">
-        <!-- Category 1: Programming Languages -->
-        <div class="skills-category">
-          <h3><i class="fas fa-code"></i> Programming Languages</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fab fa-python"></i></div>
-              <span>Python</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 95%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-database"></i></div>
-              <span>SQL</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 90%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Category 2: AI & Deep Learning -->
-        <div class="skills-category">
-          <h3><i class="fas fa-brain"></i> AI & Deep Learning</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
-              <span>Neural Networks</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 92%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-cube"></i></div>
-              <span>GANs (3D GANs)</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 88%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-robot"></i></div>
-              <span>LLMs</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 86%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-terminal"></i></div>
-              <span>Prompt Engineering</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-search-plus"></i></div>
-              <span>RAG Fundamentals</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 82%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Category 3: ML Libraries -->
-        <div class="skills-category">
-          <h3><i class="fas fa-cogs"></i> ML Libraries</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-fire"></i></div>
-              <span>PyTorch</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
-              <span>XGBoost</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 92%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-language"></i></div>
-              <span>NLTK & NLP</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 88%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-table"></i></div>
-              <span>Pandas & NumPy</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 95%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-square-root-alt"></i></div>
-              <span>Scikit-Learn</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 92%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Category 4: Data Engineering -->
-        <div class="skills-category">
-          <h3><i class="fas fa-filter"></i> Data Engineering</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-stream"></i></div>
-              <span>ETL Pipelines</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-broom"></i></div>
-              <span>Data Cleaning</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 95%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-sliders-h"></i></div>
-              <span>Feature Engineering</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 92%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Category 5: Tools & Platforms -->
-        <div class="skills-category">
-          <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-server"></i></div>
-              <span>MySQL</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
-              <span>Tableau</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 88%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
-              <span>Power BI</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 85%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fab fa-github"></i></div>
-              <span>GitHub</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 92%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-play-circle"></i></div>
-              <span>Streamlit</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 92%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-comments"></i></div>
-              <span>ChatGPT & Claude</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 94%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
-              <span>GitHub Copilot</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 90%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Category 6: Certifications -->
-        <div class="skills-category">
-          <h3><i class="fas fa-certificate"></i> Certifications & Honors</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-award"></i></div>
-              <span>IBM AI Engineering Specialization</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 100%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-award"></i></div>
-              <span>IBM Data Analyst Professional</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 100%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-award"></i></div>
-              <span>Introduction to Data Science</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 100%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-star"></i></div>
-              <span>Amazon ML Summer School 2026</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 100%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Category 7: Artistic Disciplines -->
-        <div class="skills-category">
-          <h3><i class="fas fa-palette"></i> Artistic Disciplines</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
-              <span>Oil Painting</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 92%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-pencil-alt"></i></div>
-              <span>Sketching</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 95%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-tint"></i></div>
-              <span>Watercolor</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 88%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-icon"><i class="fas fa-feather"></i></div>
-              <span>Madhubani & Folk Art</span>
-              <div class="skill-bar"><div class="skill-progress" style="--progress: 90%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Category 8: Soft Skills -->
-        <div class="skills-category">
-          <h3><i class="fas fa-users"></i> Core Strengths & Soft Skills</h3>
-          <div class="soft-skills">
-            <span class="soft-skill">Problem Solving</span>
-            <span class="soft-skill">Data-Driven Decision Making</span>
-            <span class="soft-skill">Team Collaboration</span>
-            <span class="soft-skill">Effective Communication</span>
-            <span class="soft-skill">Adaptability</span>
-            <span class="soft-skill">Event Management</span>
-            <span class="soft-skill">Leadership</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section (Exact Verbatim Resume Alignment) -->
-  <section id="experience" class="experience section">
-    <div class="container">
-      <h2 class="section-title">Experience & Education</h2>
-      <p class="section-subtitle">Professional work history, trainee roles, extracurricular leadership, and academic background</p>
-      
-      <div class="timeline">
-        <!-- Experience 1: Vaighai Agro Products -->
-        <div class="timeline-item">
-          <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
-          <div class="timeline-content">
-            <span class="timeline-date">Jul 2026 – Present</span>
-            <h3>Data Engineer Intern</h3>
-            <h4>Vaighai Agro Products</h4>
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>Direct Contact</h4>
             <ul>
-              <li>Analyzed a 456-deal CRM dataset to identify pipeline health risks, finding 63.6% of deals with missing key fields, 93.2% overdue deals, and the top 5% of deals contributing ∼67% of total pipeline value.</li>
-              <li>Designed a data-backed CRM health scoring framework combining contact inactivity, overdue close dates, and normalized deal value into Healthy, Watch, Warning, and Critical tiers; derived 14/30-day contact and 6L/15L value thresholds from observed data patterns.</li>
-              <li>Implemented an automated pipeline monitoring engine using Power Automate and Dynamics 365 to process open opportunities daily, calculate health scores, route severity-based alerts through Teams/Outlook, write scores back to CRM, and maintain audit/error logs.</li>
+              <li><a href="mailto:work.nishitajain@gmail.com">work.nishitajain@gmail.com</a></li>
+              <li><a href="tel:+917869707205">+91 7869707205</a></li>
+              <li><span><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India</span></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="#home">Home (Billboard)</a></li>
+              <li><a href="#projects">Top Projects</a></li>
+              <li><a href="#interactive-lab">Interactive Simulator</a></li>
+              <li><a href="#experience">Internship Experience</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Profiles & Media</h4>
+            <ul>
+              <li><a href="https://leetcode.com/u/nishita_23/" target="_blank">LeetCode Profile</a></li>
+              <li><a href="https://github.com/Nish232003" target="_blank">GitHub Repositories</a></li>
+              <li><a href="https://www.linkedin.com/in/nishitajain2311/" target="_blank">LinkedIn Network</a></li>
+              <li><a href="https://medium.com/@work.nishitajain" target="_blank">Medium Essays</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Credentials</h4>
+            <ul>
+              <li><a href="#" id="openResumeFooterBtn">View ATS Resume</a></li>
+              <li><a href="assets/nishita_jain_resume_ds.pdf" download>Download Resume PDF</a></li>
+              <li><span class="footer-cgpa">CGPA: 8.37 @ VIT Bhopal</span></li>
+              <li><span class="footer-scholar">Amazon ML Scholar 2026</span></li>
             </ul>
           </div>
         </div>
 
-        <!-- Experience 2: ThinkAI India Consulting -->
-        <div class="timeline-item">
-          <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
-          <div class="timeline-content">
-            <span class="timeline-date">Nov 2025 – Jan 2026</span>
-            <h3>Python / ML Developer Intern</h3>
-            <h4>ThinkAI India Consulting Pvt. Ltd.</h4>
-            <ul>
-              <li>Built a real-time warehouse surveillance system using YOLO-based deep learning (YOLOv8/v11 neural architectures) in Python to detect PPE compliance - hard hats and safety jackets at frame level.</li>
-              <li>Curated and annotated a custom dataset of ∼100 warehouse images, translating safety requirements into structured ground-truth labels for neural network training and validation.</li>
-              <li>Benchmarked YOLOv8 vs. YOLOv11 on live video feeds through systematic model evaluation; identified YOLOv11 as the superior architecture based on detection accuracy, directly informing the final deployment decision.</li>
-            </ul>
+        <p class="footer-copyright">
+          © 2026 Nishita Jain. Engineered as a Netflix-inspired experience with pure HTML5, CSS3 & JavaScript. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 1: NETFLIX TITLE DETAIL MODAL
+       ========================================================================== -->
+  <div id="titleModal" class="netflix-modal-backdrop">
+    <div class="netflix-modal-dialog">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close">&times;</button>
+      
+      <div class="modal-hero-header" id="modalHeroHeader">
+        <div class="modal-header-gradient"></div>
+        <div class="modal-hero-content">
+          <h2 class="modal-hero-title" id="modalTitle">Project Title</h2>
+          <div class="modal-actions" id="modalActionButtons">
+            <!-- Buttons dynamically inserted -->
           </div>
         </div>
+      </div>
 
-        <!-- Experience 3: Sabudh Foundation -->
-        <div class="timeline-item">
-          <div class="timeline-icon"><i class="fas fa-brain"></i></div>
-          <div class="timeline-content">
-            <span class="timeline-date">Jan 2025 – Jun 2025</span>
-            <h3>Software & Data Engineering Trainee</h3>
-            <h4>Sabudh Foundation</h4>
-            <ul>
-              <li>Developed an end-to-end Generative AI pipeline using 3D GANs for facial reconstruction, leveraging deep learning-based generative modelling to synthesise realistic 3D facial outputs from 2D image inputs.</li>
-              <li>Built a data preprocessing pipeline in Python to clean and structure 2,500+ face images from a Kaggle dataset, reducing data loading time by 15% through efficient batching and handling techniques.</li>
-              <li>Validated generated 3D outputs through systematic testing and iterative refinement across structured weekly feedback cycles, resolving edge-case generation failures to ensure consistent model performance.</li>
-            </ul>
+      <div class="modal-body">
+        <div class="modal-meta-grid">
+          <div class="modal-overview">
+            <div class="billboard-meta">
+              <span class="meta-match" id="modalMatch">98% Match</span>
+              <span class="meta-pill" id="modalYear">2026</span>
+              <span class="meta-pill" id="modalBadge">Production ML</span>
+              <span class="meta-pill">Ultra HD</span>
+            </div>
+            <p id="modalDescription">Detailed synopsis...</p>
+            
+            <div class="modal-architecture-diagram" id="modalArchContainer">
+              <h4><i class="fas fa-sitemap"></i> Pipeline & Architecture Flow</h4>
+              <div class="arch-flow" id="modalArchFlow">
+                <!-- Dynamic Nodes -->
+              </div>
+            </div>
           </div>
-        </div>
 
-        <!-- Extra Curricular / Achievement: Amazon ML Summer School -->
-        <div class="timeline-item">
-          <div class="timeline-icon"><i class="fas fa-award"></i></div>
-          <div class="timeline-content">
-            <span class="timeline-date">2026</span>
-            <h3>Amazon ML Summer School 2026</h3>
-            <h4>Selected ML Scholar</h4>
-            <p>Selected among 3,000 students from 1.3L+ registrations nationwide for Amazon's competitive ML program.</p>
-          </div>
-        </div>
-
-        <!-- Leadership: Data Science Club, VIT Bhopal -->
-        <div class="timeline-item">
-          <div class="timeline-icon"><i class="fas fa-users"></i></div>
-          <div class="timeline-content">
-            <span class="timeline-date">May 2023 – Apr 2024</span>
-            <h3>Data Science Club, VIT Bhopal</h3>
-            <h4>Core Member</h4>
-            <p>Co-organised a 24-hour intercollege hackathon attracting 150+ participants.</p>
-          </div>
-        </div>
-
-        <!-- Volunteer: Robin Hood Army -->
-        <div class="timeline-item">
-          <div class="timeline-icon"><i class="fas fa-hands-helping"></i></div>
-          <div class="timeline-content">
-            <span class="timeline-date">Volunteer</span>
-            <h3>Robin Hood Army</h3>
-            <h4>Community Welfare Volunteer</h4>
-            <p>Volunteered in community welfare drives, coordinating food distribution and on-ground logistics.</p>
-          </div>
-        </div>
-
-        <!-- Education -->
-        <div class="timeline-item">
-          <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
-          <div class="timeline-content">
-            <span class="timeline-date">Oct 2022 – May 2027</span>
-            <h3>Vellore Institute of Technology (VIT Bhopal)</h3>
-            <h4>Integrated M.Tech in Computer Science & Engineering (Data Science)</h4>
-            <p><strong>CGPA: 8.37 / 10</strong></p>
-          </div>
-        </div>
-
-        <!-- Certifications -->
-        <div class="timeline-item">
-          <div class="timeline-icon"><i class="fas fa-certificate"></i></div>
-          <div class="timeline-content">
-            <span class="timeline-date">Certifications</span>
-            <h3>Professional Certifications</h3>
-            <div class="certifications-list">
-              <span class="cert-badge"><i class="fas fa-check-circle"></i> IBM AI Engineering Specialization</span>
-              <span class="cert-badge"><i class="fas fa-check-circle"></i> IBM Data Analyst Professional</span>
-              <span class="cert-badge"><i class="fas fa-check-circle"></i> Introduction to Data Science</span>
+          <div class="modal-specs-sidebar">
+            <div class="spec-item">
+              <span class="spec-label">Tech Stack:</span>
+              <span class="spec-value" id="modalTechStack">Python, Scikit-Learn</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Key Metric / Accuracy:</span>
+              <span class="spec-value" id="modalMetric">98% Precision</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Category:</span>
+              <span class="spec-value" id="modalCategory">Machine Learning</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Status:</span>
+              <span class="spec-value" id="modalStatus">Completed & Deployed</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Blog Section -->
-  <section id="blog" class="blog section">
-    <div class="container">
-      <h2 class="section-title">Blog & Writings</h2>
-      <p class="section-subtitle">Thoughts, reflections, and stories from my journey</p>
-      
-      <div class="blog-grid">
-        <article class="blog-card">
-          <div class="blog-image">
-            <div class="placeholder-blog">
-              <i class="fas fa-feather-alt"></i>
-            </div>
-          </div>
-          <div class="blog-content">
-            <span class="blog-date">Aug 13, 2025</span>
-            <h3>A Letter to the Self I Barely Recognize</h3>
-            <p>There is a part of me that is lost. I know this because its absence is a void I feel more deeply with each passing day. Some days,...</p>
-            <a href="https://medium.com/@work.nishitajain/a-letter-to-the-self-i-barely-recognize-ee512819d487" target="_blank" class="read-more">Read on Medium <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-image">
-            <div class="placeholder-blog">
-              <i class="fas fa-pen"></i>
-            </div>
-          </div>
-          <div class="blog-content">
-            <span class="blog-date">Aug 6, 2025</span>
-            <h3>The doorbell sounds, the room fills up ,</h3>
-            <p>A bitter drink in a porcelain cup ,</p>
-            <a href="https://medium.com/@work.nishitajain/the-doorbell-sounds-the-room-fills-up-86c38691c578" target="_blank" class="read-more">Read on Medium <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-      </div>
-
-      <div class="blog-cta">
-        <a href="https://medium.com/@work.nishitajain" target="_blank" class="btn btn-secondary">
-          <i class="fab fa-medium"></i> View All Posts on Medium
+  <!-- ==========================================================================
+       MODAL 2: ATS RESUME VIEWER MODAL
+       ========================================================================== -->
+  <div id="resumeModal" class="netflix-modal-backdrop">
+    <div class="netflix-modal-dialog resume-modal-dialog">
+      <button class="modal-close-btn" id="resumeCloseBtn" aria-label="Close">&times;</button>
+      <div class="row-header" style="padding: 20px 24px 10px;">
+        <h3 class="row-title"><i class="fas fa-file-pdf" style="color: var(--netflix-red);"></i> Nishita Jain — ATS Resume</h3>
+        <a href="assets/nishita_jain_resume_ds.pdf" download class="btn-netflix btn-netflix-play" style="padding: 8px 18px; font-size: 0.88rem;">
+          <i class="fas fa-download"></i> Download PDF
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact section">
-    <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="section-subtitle">Let's connect and build impactful data systems or creative projects together</p>
-      
-      <div class="contact-content">
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <h4>Email</h4>
-              <a href="mailto:work.nishitajain@gmail.com">work.nishitajain@gmail.com</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <div>
-              <h4>Phone</h4>
-              <a href="tel:+917869707205">+91 7869707205</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h4>Location</h4>
-              <p>Bhopal, Madhya Pradesh, India</p>
-            </div>
-          </div>
-          <div class="contact-social">
-            <a href="https://github.com/Nish232003" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/nishitajain2311/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://medium.com/@work.nishitajain" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
-            <a href="mailto:work.nishitajain@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-          </div>
-        </div>
-
-        <form class="contact-form" id="contactForm">
-          <div class="form-group">
-            <input type="text" name="name" id="formName" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" id="formEmail" placeholder="Your Email" required>
-          </div>
-          <div class="form-group">
-            <input type="text" name="subject" id="formSubject" placeholder="Subject">
-          </div>
-          <div class="form-group">
-            <textarea name="message" id="formMessage" placeholder="Your Message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" id="formSubmitBtn">
-            <i class="fas fa-paper-plane"></i> Send Message
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <h3>Nishita Jain</h3>
-          <p>Data Scientist & Artist</p>
-        </div>
-        <div class="footer-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="footer-social">
-          <a href="https://github.com/Nish232003" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/nishitajain2311/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://medium.com/@work.nishitajain" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
-          <a href="mailto:work.nishitajain@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Nishita Jain. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Interactive Resume Modal -->
-  <div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-label="Resume View">
-    <div class="resume-modal-card">
-      <div class="resume-modal-header">
-        <div>
-          <h3><i class="fas fa-file-alt"></i> Nishita Jain — Resume</h3>
-          <span class="resume-sub">Data Scientist & AI Practitioner</span>
-        </div>
-        <div class="resume-modal-actions">
-          <a href="assets/nishita_jain_resume_ds.pdf" download="Nishita_Jain_Resume.pdf" class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Download PDF</a>
-          <button class="resume-close-btn" id="resumeCloseBtn" aria-label="Close resume">&times;</button>
-        </div>
-      </div>
-      <div class="resume-modal-body">
-        <div class="resume-sheet">
-          <div class="resume-sheet-header">
-            <h2>Nishita Jain</h2>
-            <p class="resume-sheet-contact">
-              <a href="mailto:work.nishitajain@gmail.com">work.nishitajain@gmail.com</a> | 
-              <a href="https://www.linkedin.com/in/nishitajain2311/" target="_blank">linkedin.com/in/nishitajain2311</a> | 
-              <a href="https://github.com/Nish232003" target="_blank">github.com/Nish232003</a>
-            </p>
-          </div>
-
-          <div class="resume-sheet-section">
-            <h3 class="sheet-title">EDUCATION</h3>
-            <div class="sheet-row">
-              <strong>Vellore Institute of Technology</strong>
-              <span class="sheet-date">Oct 2022 – May 2027</span>
-            </div>
-            <div class="sheet-subrow">
-              <span>Integrated M.Tech in Computer Science & Engineering (Data Science)</span>
-              <strong>CGPA: 8.37 / 10</strong>
-            </div>
-          </div>
-
-          <div class="resume-sheet-section">
-            <h3 class="sheet-title">TECHNICAL SKILLS</h3>
-            <p><strong>Programming Languages:</strong> Python, SQL</p>
-            <p><strong>AI & Deep Learning:</strong> Neural Networks, GANs, LLMs, Prompt Engineering, RAG (fundamentals)</p>
-            <p><strong>ML Libraries:</strong> PyTorch, XGBoost, NLTK, Pandas, NumPy</p>
-            <p><strong>Data:</strong> ETL, Data Cleaning, Feature Engineering</p>
-            <p><strong>Tools:</strong> MySQL, Tableau, Power BI, GitHub, Streamlit, ChatGPT, Claude, GitHub Copilot</p>
-            <p><strong>Certificates:</strong> IBM AI Engineering Specialization, IBM Data Analyst Professional, Introduction to Data Science</p>
-          </div>
-
-          <div class="resume-sheet-section">
-            <h3 class="sheet-title">EXPERIENCE</h3>
-            
-            <div class="sheet-entry">
-              <div class="sheet-row">
-                <strong>Vaighai Agro Products</strong>
-                <span class="sheet-date">Jul 2026 – Present</span>
-              </div>
-              <div class="sheet-subrow">
-                <em>Data Engineer Intern</em>
-              </div>
-              <ul class="sheet-list">
-                <li>Analyzed a 456-deal CRM dataset to identify pipeline health risks, finding 63.6% of deals with missing key fields, 93.2% overdue deals, and the top 5% of deals contributing ∼67% of total pipeline value.</li>
-                <li>Designed a data-backed CRM health scoring framework combining contact inactivity, overdue close dates, and normalized deal value into Healthy, Watch, Warning, and Critical tiers; derived 14/30-day contact and 6L/15L value thresholds from observed data patterns.</li>
-                <li>Implemented an automated pipeline monitoring engine using Power Automate and Dynamics 365 to process open opportunities daily, calculate health scores, route severity-based alerts through Teams/Outlook, write scores back to CRM, and maintain audit/error logs.</li>
-              </ul>
-            </div>
-
-            <div class="sheet-entry">
-              <div class="sheet-row">
-                <strong>ThinkAI India Consulting Pvt. Ltd.</strong>
-                <span class="sheet-date">Nov 2025 – Jan 2026</span>
-              </div>
-              <div class="sheet-subrow">
-                <em>Python / ML Developer Intern</em>
-              </div>
-              <ul class="sheet-list">
-                <li>Built a real-time warehouse surveillance system using YOLO-based deep learning (YOLOv8/v11 neural architectures) in Python to detect PPE compliance - hard hats and safety jackets at frame level.</li>
-                <li>Curated and annotated a custom dataset of ∼100 warehouse images, translating safety requirements into structured ground-truth labels for neural network training and validation.</li>
-                <li>Benchmarked YOLOv8 vs. YOLOv11 on live video feeds through systematic model evaluation; identified YOLOv11 as the superior architecture based on detection accuracy, directly informing the final deployment decision.</li>
-              </ul>
-            </div>
-
-            <div class="sheet-entry">
-              <div class="sheet-row">
-                <strong>Sabudh Foundation</strong>
-                <span class="sheet-date">Jan 2025 – Jun 2025</span>
-              </div>
-              <div class="sheet-subrow">
-                <em>Software & Data Engineering Trainee</em>
-              </div>
-              <ul class="sheet-list">
-                <li>Developed an end-to-end Generative AI pipeline using 3D GANs for facial reconstruction, leveraging deep learning-based generative modelling to synthesise realistic 3D facial outputs from 2D image inputs.</li>
-                <li>Built a data preprocessing pipeline in Python to clean and structure 2,500+ face images from a Kaggle dataset, reducing data loading time by 15% through efficient batching and handling techniques.</li>
-                <li>Validated generated 3D outputs through systematic testing and iterative refinement across structured weekly feedback cycles, resolving edge-case generation failures to ensure consistent model performance.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="resume-sheet-section">
-            <h3 class="sheet-title">PROJECTS</h3>
-            
-            <div class="sheet-entry">
-              <div class="sheet-row">
-                <strong>Fake Job Detector: NLP-based Fraud Detection</strong>
-                <span class="sheet-date">Jan 2026 – Mar 2026</span>
-              </div>
-              <div class="sheet-subrow">
-                <span>[GitHub: <a href="https://github.com/Nish232003/fake_job_detector" target="_blank">Nish232003/fake_job_detector</a>]</span>
-              </div>
-              <ul class="sheet-list">
-                <li>Engineered a fraud detection system over 17,880 job postings using NLP pipelines and TF-IDF text embeddings to extract semantic representations from multi-field job text (title, description, requirements); flagged 866 fraudulent listings with 98% accuracy using XGBoost.</li>
-                <li>Benchmarked 4 ML classifiers prioritising F1-score to handle 95/5 class imbalance; achieved 82% F1-score on the fraud class, outperforming baseline Logistic Regression by 14%.</li>
-                <li>Shipped a production Streamlit app with sub-second inference, probability-based confidence scoring, and automated red-flag keyword detection deployed on Streamlit Cloud and version-controlled via GitHub.</li>
-              </ul>
-            </div>
-
-            <div class="sheet-entry">
-              <div class="sheet-row">
-                <strong>SOIL SYNC: Predictive Soil Fertility Analysis</strong>
-                <span class="sheet-date">Jan 2025 – Mar 2025</span>
-              </div>
-              <div class="sheet-subrow">
-                <span>[GitHub: <a href="https://github.com/Nish232003/Soil-Sync" target="_blank">Nish232003/Soil-Sync</a>]</span>
-              </div>
-              <ul class="sheet-list">
-                <li>Built an end-to-end IoT-ML pipeline in Python to process soil sensor data and classify soil fertility, achieving 85% prediction accuracy using Random Forest and Logistic Regression.</li>
-                <li>Engineered data preprocessing, model evaluation, and interactive Tableau dashboards to transform soil-health metrics into actionable insights for agricultural planning and soil monitoring.</li>
-              </ul>
-            </div>
-
-            <div class="sheet-entry">
-              <div class="sheet-row">
-                <strong>MarketLens: E-Commerce Marketing ROI Intelligence Platform</strong>
-                <span class="sheet-date">Featured Project</span>
-              </div>
-              <div class="sheet-subrow">
-                <span>[Live: <a href="https://marketlens-ecommerce-roi.onrender.com/" target="_blank">marketlens-ecommerce-roi.onrender.com</a> | GitHub: <a href="https://github.com/Nish232003/Marketlens-ecommerce-roi" target="_blank">Nish232003/Marketlens-ecommerce-roi</a>]</span>
-              </div>
-              <ul class="sheet-list">
-                <li>Ingested multi-table relational e-commerce datasets into automated pipelines computing ROAS, CAC, and LTV/CAC.</li>
-                <li>Engineered 8 interactive Plotly visual dashboards, budget saturation curve simulation, and hybrid NLP AI recommendations.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="resume-sheet-section">
-            <h3 class="sheet-title">EXTRA CURRICULAR</h3>
-            <p><strong>Amazon ML Summer School 2026:</strong> Selected among 3,000 students from 1.3L+ registrations nationwide for Amazon’s competitive ML program.</p>
-            <p><strong>Data Science Club, VIT Bhopal:</strong> Core member; co-organised a 24-hour intercollege hackathon attracting 150+ participants.</p>
-            <p><strong>Robin Hood Army:</strong> Volunteered in community welfare drives, coordinating food distribution and on-ground logistics.</p>
-          </div>
-        </div>
+      <div class="modal-body resume-modal-body">
+        <iframe src="assets/nishita_jain_resume_ds.pdf" class="resume-iframe" title="Nishita Jain Resume"></iframe>
       </div>
     </div>
   </div>
 
-  <!-- Art Lightbox Modal -->
-  <div class="art-lightbox" id="artLightbox" role="dialog" aria-modal="true" aria-label="Artwork Preview">
-    <div class="lightbox-content">
-      <button class="lightbox-close" id="lightboxClose" aria-label="Close image preview">&times;</button>
-      <img src="" alt="Artwork Preview" class="lightbox-image" id="lightboxImg">
+  <!-- ==========================================================================
+       MODAL 3: ART GALLERY LIGHTBOX
+       ========================================================================== -->
+  <div id="artLightbox" class="lightbox-backdrop">
+    <button class="modal-close-btn" id="lightboxCloseBtn" aria-label="Close">&times;</button>
+    <div class="lightbox-container">
+      <img id="lightboxImg" src="" alt="Art Piece">
       <div class="lightbox-caption">
-        <h4 id="lightboxTitle"></h4>
-        <p id="lightboxMedium"></p>
+        <h4 id="lightboxTitle">Artwork Title</h4>
+        <p id="lightboxMedium">Medium & Dimensions</p>
       </div>
-    </div>
-  </div>
-
-  <!-- Project Case Study Modal -->
-  <div class="case-study-modal" id="caseStudyModal" role="dialog" aria-modal="true" aria-label="Project Case Study">
-    <div class="case-study-card">
-      <button class="case-study-close" id="caseStudyClose" aria-label="Close modal">&times;</button>
-      <div id="caseStudyContent"></div>
     </div>
   </div>
 
   <!-- Toast Notification -->
-  <div class="toast-notification" id="toastNotification" role="status" aria-live="polite">
-    <i class="fas fa-check-circle"></i>
-    <span class="toast-msg">Email copied to clipboard!</span>
+  <div id="toast" class="toast-notification">
+    <i class="fas fa-info-circle"></i>
+    <span id="toastMessage">Notification message</span>
   </div>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <script src="script.js"></script>
+  <!-- Core JavaScript -->
+  <script src="script.js?v=netflix_v10"></script>
 </body>
 </html>
