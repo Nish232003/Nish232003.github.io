@@ -1565,6 +1565,7 @@ body {
 @media (max-width: 768px) {
   .netflix-navbar {
     padding: 0 5%;
+    height: 60px;
   }
   .nav-links {
     display: none;
@@ -1573,8 +1574,8 @@ body {
     font-size: 2.2rem;
   }
   .avatar-wrapper {
-    width: 100px;
-    height: 100px;
+    width: 95px;
+    height: 95px;
   }
   .profile-name {
     font-size: 0.95rem;
@@ -1583,20 +1584,121 @@ body {
     gap: 20px;
   }
   .billboard-hero {
-    min-height: 75vh;
-    padding: 100px 5% 40px;
+    min-height: 70vh;
+    padding: 85px 5% 35px;
     background: #141414;
   }
   .billboard-title {
-    font-size: 3.2rem;
+    font-size: 2.8rem;
   }
   .billboard-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+  }
+  .billboard-actions {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .billboard-btn {
+    padding: 8px 18px;
+    font-size: 0.92rem;
   }
   .netflix-card {
-    flex: 0 0 220px;
+    flex: 0 0 210px;
+  }
+  .row-slider-container {
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+  .slider-arrow {
+    display: none;
+  }
+  .row-explore-all {
+    opacity: 1;
+  }
+  .netflix-modal-dialog {
+    max-height: 88vh;
+    margin: 15px;
+    width: calc(100% - 30px);
+  }
+  .modal-hero-header {
+    height: 180px;
+  }
+  .modal-hero-title {
+    font-size: 2rem;
+  }
+  .modal-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .modal-specs-sidebar {
+    border-left: none;
+    border-top: 1px solid var(--netflix-dark-gray);
+    padding-left: 0;
+    padding-top: 18px;
+  }
+  .modal-body {
+    padding: 18px 20px 30px;
+  }
+  .modal-actions {
+    flex-wrap: wrap;
+  }
+  .lightbox-backdrop {
+    padding: 16px;
+  }
+  .lightbox-container img {
+    max-height: 65vh;
   }
   .footer-grid {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .billboard-title {
+    font-size: 2.1rem;
+  }
+  .billboard-subtitle {
+    font-size: 0.92rem;
+  }
+  .billboard-meta {
+    font-size: 0.8rem;
+    gap: 8px;
+  }
+  .netflix-card {
+    flex: 0 0 175px;
+  }
+  .card-thumbnail {
+    height: 120px;
+  }
+  .card-title {
+    font-size: 0.85rem;
+  }
+  .card-meta-match {
+    font-size: 0.78rem;
+  }
+  .avatar-wrapper {
+    width: 78px;
+    height: 78px;
+  }
+  .profile-title {
+    font-size: 1.8rem;
+  }
+  .profile-grid {
+    gap: 14px;
+  }
+  .profile-banner-alert {
+    margin: 10px 4% 0;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .alert-change-btn {
+    margin-left: 0;
+  }
+  .scanner-btn {
+    width: 100%;
+  }
+}
+
